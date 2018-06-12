@@ -18,4 +18,7 @@
   <ItemGroup>
     <_ContentIncludedByDefault Remove="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="React\Components\Message\MessageComponent.tsx" />
+  </ItemGroup>
 </Project>

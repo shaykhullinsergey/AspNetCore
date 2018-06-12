@@ -11,8 +11,10 @@
       <e p="packages" t="ExcludeRecursive" />
       <e p="src" t="Include">
         <e p="Core" t="IncludeRecursive">
-          <e p="Class1.cs" t="Include" />
           <e p="Core.csproj" t="IncludeRecursive" />
+          <e p="Message" t="Include">
+            <e p="Message.cs" t="Include" />
+          </e>
           <e p="bin" t="ExcludeRecursive" />
           <e p="obj" t="ExcludeRecursive">
             <e p="Debug" t="Include">
@@ -23,8 +25,10 @@
           </e>
         </e>
         <e p="Data" t="IncludeRecursive">
-          <e p="Class1.cs" t="Include" />
           <e p="Data.csproj" t="IncludeRecursive" />
+          <e p="Message" t="Include">
+            <e p="MessageDbContext.cs" t="Include" />
+          </e>
           <e p="bin" t="ExcludeRecursive" />
           <e p="obj" t="ExcludeRecursive">
             <e p="Debug" t="Include">
@@ -37,9 +41,26 @@
         <e p="Web" t="IncludeRecursive">
           <e p="Controllers" t="Include">
             <e p="HomeController.cs" t="Include" />
+            <e p="MessageController.cs" t="Include" />
           </e>
           <e p="Program.cs" t="Include" />
           <e p="React" t="Include">
+            <e p="Components" t="Include">
+              <e p="Message" t="Include">
+                <e p="AddMessageBlock.tsx" t="Include" />
+                <e p="Message.ts" t="Include" />
+                <e p="MessageBlock.tsx" t="Include" />
+                <e p="MessageComponent.tsx" t="Include" />
+                <e p="index.ts" t="Include" />
+              </e>
+            </e>
+            <e p="Controllers" t="Include">
+              <e p="Message" t="Include">
+                <e p="MessageController.ts" t="Include" />
+                <e p="MessageViewModel.ts" t="Include" />
+                <e p="index.ts" t="Include" />
+              </e>
+            </e>
             <e p="index.tsx" t="Include" />
             <e p="package-lock.json" t="Include" />
             <e p="package.json" t="Include" />
@@ -47,6 +68,11 @@
             <e p="webpack.config.js" t="Include" />
           </e>
           <e p="Startup.cs" t="Include" />
+          <e p="ViewModels" t="Include">
+            <e p="Message" t="Include">
+              <e p="MessageViewModel.cs" t="Include" />
+            </e>
+          </e>
           <e p="Views" t="Include">
             <e p="Home" t="Include">
               <e p="Index.cshtml" t="Include" />

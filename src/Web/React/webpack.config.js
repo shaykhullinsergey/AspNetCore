@@ -1,3 +1,5 @@
+const path = require('path')
+
 module.exports = {
 	entry: "./index.tsx",
 	output: {
@@ -8,7 +10,11 @@ module.exports = {
 	devtool: "source-map",
 
 	resolve: {
-		extensions: [".ts", ".tsx", ".js", ".json"]
+		extensions: [".ts", ".tsx", ".js", ".json"],
+		alias: {
+			Components: path.resolve(__dirname, 'Components/'),
+			Controllers: path.resolve(__dirname, 'Controllers/'),
+		}
 	},
 
 	module: {
@@ -23,5 +29,5 @@ module.exports = {
 	externals: {
 		"react": "React",
 		"react-dom": "ReactDOM"
-	}
+	},
 };

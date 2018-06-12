@@ -1,21 +1,18 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Data;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Web
 {
 	public class Startup
 	{
-		private readonly IConfiguration configuration;
-		
-		public Startup(IConfiguration configuration)
-		{
-			this.configuration = configuration;
-		}
-		
 		public void ConfigureServices(IServiceCollection services)
 		{
+			services.AddDbContext<MessageDbContext>(
+				options => options.UseInMemoryDatabase(nameof(MessageDbContext)));
+			
 			services.AddMvc();
 		}
 

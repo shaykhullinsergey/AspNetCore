@@ -1,7 +1,8 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 
+import {MessageComponent} from 'Components/Message';
+
 ReactDOM.render(
-	<p>Hello world</p>,
-	document.getElementById('react')
-)
+	<MessageComponent/>,
+	document.getElementById('react'))

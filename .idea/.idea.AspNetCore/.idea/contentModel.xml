@@ -16,7 +16,7 @@
           <e p="bin" t="ExcludeRecursive" />
           <e p="obj" t="ExcludeRecursive">
             <e p="Debug" t="Include">
-              <e p="netstandard2.0" t="Include">
+              <e p="netcoreapp2.0" t="Include">
                 <e p="Core.AssemblyInfo.cs" t="Include" />
               </e>
             </e>
@@ -28,15 +28,30 @@
           <e p="bin" t="ExcludeRecursive" />
           <e p="obj" t="ExcludeRecursive">
             <e p="Debug" t="Include">
-              <e p="netstandard2.0" t="Include">
+              <e p="netcoreapp2.0" t="Include">
                 <e p="Data.AssemblyInfo.cs" t="Include" />
               </e>
             </e>
           </e>
         </e>
         <e p="Web" t="IncludeRecursive">
+          <e p="Controllers" t="Include">
+            <e p="HomeController.cs" t="Include" />
+          </e>
           <e p="Program.cs" t="Include" />
+          <e p="React" t="Include">
+            <e p="index.tsx" t="Include" />
+            <e p="package-lock.json" t="Include" />
+            <e p="package.json" t="Include" />
+            <e p="tsconfig.json" t="Include" />
+            <e p="webpack.config.js" t="Include" />
+          </e>
           <e p="Startup.cs" t="Include" />
+          <e p="Views" t="Include">
+            <e p="Home" t="Include">
+              <e p="Index.cshtml" t="Include" />
+            </e>
+          </e>
           <e p="Web.csproj" t="IncludeRecursive" />
           <e p="bin" t="ExcludeRecursive" />
           <e p="obj" t="ExcludeRecursive">
@@ -46,7 +61,18 @@
               </e>
             </e>
           </e>
-          <e p="wwwroot" t="Include" />
+          <e p="wwwroot" t="Include">
+            <e p="css" t="Include">
+              <e p="bulma.min.css" t="Include" />
+            </e>
+            <e p="img" t="Include" />
+            <e p="js" t="Include">
+              <e p="bundle.js" t="Include" />
+              <e p="bundle.js.map" t="Include" />
+              <e p="react-dom.development.js" t="Include" />
+              <e p="react.development.js" t="Include" />
+            </e>
+          </e>
         </e>
       </e>
       <e p="tests" t="Include">

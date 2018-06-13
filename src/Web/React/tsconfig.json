@@ -3,16 +3,21 @@
     "outDir": "../wwwroot/js/",
     "sourceMap": true,
     "noImplicitAny": true,
+		"noEmit": true,
+		"noImplicitReturns": true,
+		"noUnusedLocals": true,
     "module": "commonjs",
     "target": "es5",
     "jsx": "react",
-    "baseUrl": ".",
-    "paths": {
-      "Components/*": ["Components/*"],
-      "Controllers/*": ["Controllers/*"]
-    }
-  },
+    "moduleResolution": "node",
+		"baseUrl": "./",
+		"paths": {
+      "Components": ["Components"],
+      "Components/*": ["Components/*"]
+		}
+	},
   "include": [
-    "./**"
-  ]
+    "./*"
+  ],
+	"compileOnSave": false
 }

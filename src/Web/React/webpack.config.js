@@ -1,4 +1,5 @@
 const path = require('path')
+const LiveReloadPlugin = require('webpack-livereload-plugin');
 
 module.exports = {
 	entry: "./index.tsx",
@@ -24,10 +25,9 @@ module.exports = {
 		]
 	},
 	
-	mode: "development",
+	plugins: [
+		new LiveReloadPlugin()
+	],
 	
-	externals: {
-		"react": "React",
-		"react-dom": "ReactDOM"
-	},
+	mode: "production",
 };

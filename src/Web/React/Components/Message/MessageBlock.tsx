@@ -1,9 +1,13 @@
 import * as React from 'react';
-import {Message, MessageProps} from 'Components/Message';
+import {MessageViewModel} from 'Components/Message';
 
-export class MessageBlock extends React.Component<MessageProps> {
+export interface MessageBlockProps {
+	messages: MessageViewModel[];
+}
 
-	private renderMessage(message: Message) {
+export class MessageBlock extends React.Component<MessageBlockProps> {
+
+	private renderMessage(message: MessageViewModel) {
 		return (
 			<li key={message.id}>
 				<strong>{message.id}</strong>

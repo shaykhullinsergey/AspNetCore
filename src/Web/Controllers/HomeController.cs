@@ -1,10 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace Web
+namespace AspNetCore
 {
 	public class HomeController : Controller
 	{
-		[HttpGet]
 		public IActionResult Index()
 		{
 			return View();

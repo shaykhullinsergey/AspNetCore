@@ -4,5 +4,5 @@ import * as ReactDOM from 'react-dom'
 import {MessageComponent} from 'Components/Message';
 
 ReactDOM.render(
-	<MessageComponent/>,
+	<MessageComponent />,
 	document.getElementById('react'))

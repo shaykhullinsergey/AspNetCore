@@ -1,9 +1,8 @@
-﻿using Core;
-
-namespace Web
+﻿namespace AspNetCore
 {
 	public class MessageViewModel
 	{
-		public Message[] Messages { get; set; }
+		public int? Id { get; set; }
+		public string Text { get; set; }
 	}
 }

@@ -1,21 +1,32 @@
 import * as React from 'react'
 
-import {Controller} from 'Controllers/Message';
-import {MessageState, MessageBlock, AddMessageBlock} from '.'
+import {Controller, AddMessageBlock, MessageBlock, MessageViewModel} from 'Components/Message'
 
-export class MessageComponent extends React.Component<{}, MessageState> {
+export interface MessageComponentState {
+	messages: MessageViewModel[];
+}
+
+export class MessageComponent extends React.Component<{}, MessageComponentState> {
 
 	constructor(props: {}) {
 		super(props)
 		this.state = {messages: null}
 	}
 	
-	public async componentDidMount() {
-		console.log("1")
-		const viewModel = await Controller.getAll()
-		
-		console.log(viewModel)
-		await this.setState({messages: viewModel.data.messages})
+	public componentDidMount() {
+		this.updateMessages()
+	}
+	
+	private updateMessages() {
+		Controller
+			.getAllMessages()
+			.then(responce => this.setState({messages: responce.data.messages}))
+	}
+	
+	private onMessage(message: MessageViewModel) {
+		Controller
+			.addMessage(message)
+			.then(responce => this.updateMessages())
 	}
 	
 	public render() {
@@ -27,7 +38,9 @@ export class MessageComponent extends React.Component<{}, MessageState> {
 		return (
 			<div>
 				{messageBlock}
-				<AddMessageBlock/>
+				
+				<AddMessageBlock 
+					onMessage={message => this.onMessage(message)}/>
 			</div>
 		)
 	}

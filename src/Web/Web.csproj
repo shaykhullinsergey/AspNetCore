@@ -2,6 +2,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <LangVersion>7.2</LangVersion>
+    <RootNamespace>AspNetCore</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="wwwroot\" />
@@ -20,5 +21,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="React\Components\Message\MessageComponent.tsx" />
+    <Content Remove="React\node_modules\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="React\node_modules\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="React\node_modules\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="React\node_modules\**" />
   </ItemGroup>
 </Project>

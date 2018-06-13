@@ -1,8 +1,6 @@
-﻿using System;
-using Core;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
-namespace Data
+namespace AspNetCore
 {
 	public class MessageDbContext : DbContext
 	{

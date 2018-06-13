@@ -1,7 +1,7 @@
 using System;
 using Xunit;
 
-namespace Web.Tests
+namespace AspNetCore.Tests
 {
 	public class UnitTest1
 	{

@@ -1,4 +1,4 @@
 export interface MessageViewModel {
 	id?: number;
-	text?: string;
+	text: string;
 }

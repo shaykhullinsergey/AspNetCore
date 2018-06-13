@@ -1,6 +1,9 @@
-import * as React from 'react';
+import * as React from 'react'
 
-import {MessageViewModel} from 'Components/Message'
+import { Button, ButtonType } from 'Controls/Button'
+import { Input } from 'Controls/Input'
+import { MessageViewModel } from 'Components/Message'
+import { ButtonGroup, ButtonGroupType } from 'Controls/ButtonGroup'
 
 export interface AddMessageProps {
 	onMessage(message: MessageViewModel): void;
@@ -11,38 +14,39 @@ export interface AddMessageState {
 }
 
 export class AddMessageBlock extends React.Component<AddMessageProps, AddMessageState> {
-	
+
 	public constructor(props: AddMessageProps) {
 		super(props)
-		
-		this.state = {message: {text: ""}}
+
+		this.state = { message: { text: '' } }
 	}
-	
+
 	private onAddMessageButtonClick() {
-		const {message} = this.state
-		
+		const { message } = this.state
 		this.props.onMessage(message)
-		this.setState({message: {text: ""}})
+
+		this.setState({ message: { text: '' } })
 	}
-	
-	private renderAddMessageButton() {
-		return (<button onClick={() => this.onAddMessageButtonClick()}>Add</button>)
+
+	private onTextBoxChanged(value: string) {
+		this.setState({ message: { ...this.state.message, text: value } })
 	}
-	
-	private onAddMessageTextareaChanged(event: React.ChangeEvent<HTMLInputElement>) {
-		this.setState({message: {...this.state.message, text: event.target.value}})
-		console.log(event.target.value)
-	}
-	
-	private renderAddMessageTextBox() {
-		return (<input onChange={event => this.onAddMessageTextareaChanged(event)} value={this.state.message.text}/>)
-	}
-	
+
 	public render() {
 		return (
 			<div>
-				{this.renderAddMessageTextBox()}
-				{this.renderAddMessageButton()}
+				<Input value={this.state.message.text}
+					onChange={value => this.onTextBoxChanged(value)}/>
+
+				<ButtonGroup type={ButtonGroupType.Addons}>
+					<Button label={'Add'}
+						type={ButtonType.Dark}
+						onClick={() => this.onAddMessageButtonClick()}/>
+
+					<Button label={'Add'}
+						type={ButtonType.Dark}
+						onClick={() => this.onAddMessageButtonClick()}/>
+				</ButtonGroup>
 			</div>)
 	}
 }

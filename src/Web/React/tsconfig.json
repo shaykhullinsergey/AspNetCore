@@ -13,7 +13,8 @@
 		"baseUrl": "./",
 		"paths": {
       "Components": ["Components"],
-      "Components/*": ["Components/*"]
+      "Components/*": ["Components/*"],
+			"Controls/*": ["Controls/*"]
 		}
 	},
   "include": [

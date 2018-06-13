@@ -18,9 +18,13 @@ export class MessageBlock extends React.Component<MessageBlockProps> {
 	}
 
 	public render() {
+		const messages = this.props.messages
+			? this.props.messages.map(message => this.renderMessage(message))
+			: null
+		
 		return (
 			<ul>
-				{this.props.messages.map(message => this.renderMessage(message))}
+				{messages}
 			</ul>
 		)
 	}

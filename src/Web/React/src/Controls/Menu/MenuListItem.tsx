@@ -1,12 +1,14 @@
 import * as React from 'react'
 import { ControlElement, ControlElementProps } from 'Controls'
 
-export class LevelItem extends ControlElement<ControlElementProps> {
+export class MenuListItem extends ControlElement<ControlElementProps> {
 	public render() {
+		const className = this.classNames()
+
 		return (
-			<p className={'level-item'}>
+			<li className={className}>
 				{this.props.children}
-			</p>
+			</li>
 		)
 	}
 }

@@ -1,0 +1,5 @@
+export * from './Message'
+export * from './MessageHeader'
+export * from './MessageBody'
+export { MessageHeader } from './MessageHeader'
+export { MessageBody } from './MessageBody'

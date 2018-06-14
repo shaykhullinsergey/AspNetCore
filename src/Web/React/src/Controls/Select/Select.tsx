@@ -6,9 +6,11 @@ export class Select extends ControlElement<ControlElementProps> {
 		const className = this.classNames('select')
 
 		return (
-			<div className={className}>
-				{this.props.children}
-			</div>
+			<span className={className}>
+				<select>
+					{this.props.children}
+				</select>
+			</span>
 		)
 	}
 }

@@ -52,6 +52,9 @@ export enum ControlType {
 export enum ControlStyle {
 	Outlined = 'is-outlined',
 	Inverted = 'is-inverted',
+	Striped = 'is-striped',
+	Bordered = 'is-bordered',
+	Narrow = 'is-narrow',
 	Rounded = 'is-rounded',
 	Toggle = 'is-toggle',
 	RoundedToggle = 'is-toggle-rounded',
@@ -61,7 +64,7 @@ export enum ControlStyle {
 export enum ControlState {
 	Normal = 'is-normal',
 	Selected = 'is-selected',
-	Novered = 'is-hovered',
+	Hovered = 'is-hovered',
 	Focused = 'is-focused',
 	Active = 'is-active',
 	Loading = 'is-loading',

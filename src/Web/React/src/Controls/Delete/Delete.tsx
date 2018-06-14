@@ -2,7 +2,7 @@ import * as React from 'react'
 import { ControlElement, ControlElementProps } from 'Controls'
 
 export interface DeleteProps extends ControlElementProps {
-	onClick(): void
+	onClick?: () => void
 }
 
 export class Delete extends ControlElement<DeleteProps> {

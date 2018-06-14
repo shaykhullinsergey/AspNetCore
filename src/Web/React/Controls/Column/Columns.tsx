@@ -1,11 +1,11 @@
-import * as React from "react"
-import {ControlElement as Control, ControlElementProps as ControlProps} from 'Controls'
+import * as React from 'react'
+import { ControlElement, ControlElementProps } from 'Controls'
 
-export class Columns extends Control<ControlProps> {
+export class Columns extends ControlElement<ControlElementProps> {
 	public render() {
-		
-		const className = this.classNames("columns")
-		
+
+		const className = this.classNames('columns')
+
 		return (
 			<div className={className}>
 				{this.props.children}

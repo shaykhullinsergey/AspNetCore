@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {ControlElement as Control, ControlElementProps as ControlProps} from 'Controls'
+import { ControlElement, ControlElementProps } from 'Controls'
 
 export enum ColumnNarrow {
 	Narrow = 'is-narrow',
@@ -11,13 +11,13 @@ export enum ColumnNarrow {
 	FullHd = 'is-narrow-fullhd'
 }
 
-export interface ColumnProps extends ControlProps {
+export interface ColumnProps extends ControlElementProps {
 	narrow?: ColumnNarrow
 }
 
-export class Column extends Control<ColumnProps> {
+export class Column extends ControlElement<ColumnProps> {
 	public render() {
-		const className = this.classNames("column", this.props.narrow)
+		const className = this.classNames('column', this.props.narrow)
 
 		return (
 			<div className={className}>

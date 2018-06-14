@@ -20,7 +20,11 @@ namespace AspNetCore
 		public async Task<IActionResult> GetAllMessages()
 		{
 			var messages = await context.Messages
-				.Select(message => new MessageViewModel {Id = message.Id, Text = message.Text})
+				.Select(message => new MessageViewModel
+				{
+					Id = message.Id,
+					Text = message.Text
+				})
 				.ToArrayAsync();
 
 			var viewModel = new MessagesViewModel
@@ -38,7 +42,7 @@ namespace AspNetCore
 			{
 				Text = model.Text
 			};
-			
+
 			context.Messages.Add(message);
 
 			await context.SaveChangesAsync();

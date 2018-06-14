@@ -1,4 +1,4 @@
-const path = require('path')
+const path = require('path');
 const LiveReloadPlugin = require('webpack-livereload-plugin');
 
 module.exports = {
@@ -18,12 +18,17 @@ module.exports = {
 			Controls: path.resolve(__dirname, 'Controls/'),
 		}
 	},
+	
 
 	module: {
 		rules: [
 			{ test: /\.tsx?$/, loader: "awesome-typescript-loader" },
-			{ enforce: "pre", test: /\.js$/, loader: "source-map-loader" }
-		]
+			{ enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
+			{ test: /\.sass$/, use: [
+				{loader: 'style-loader'}, 
+				{loader: 'css-loader'},
+				{loader: 'sass-loader'}]}
+		],
 	},
 	
 	plugins: [

@@ -1,11 +1,11 @@
-import * as React from "react"
-import {ControlElement as Control, ControlElementProps as ControlProps} from 'Controls'
+import * as React from 'react'
+import {ControlElement, ControlElementProps} from 'Controls'
 
-export interface SubtitleProps extends ControlProps {
+export interface SubtitleProps extends ControlElementProps {
 	text: string
 }
 
-export class Subtitle extends Control<SubtitleProps>{
+export class Subtitle extends ControlElement<SubtitleProps>{
 	public render() {
 		const className = this.classNames('subtitle')
 

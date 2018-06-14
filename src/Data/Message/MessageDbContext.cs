@@ -8,7 +8,7 @@ namespace AspNetCore
 			: base(options)
 		{
 		}
-		
+
 		public DbSet<Message> Messages { get; set; }
 	}
 }

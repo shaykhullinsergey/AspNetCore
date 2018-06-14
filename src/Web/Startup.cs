@@ -11,7 +11,7 @@ namespace AspNetCore
 		{
 			services.AddDbContext<MessageDbContext>(
 				options => options.UseInMemoryDatabase(nameof(MessageDbContext)));
-			
+
 			services.AddMvc();
 		}
 

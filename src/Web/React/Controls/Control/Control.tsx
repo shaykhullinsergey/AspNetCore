@@ -1,5 +1,5 @@
-import {ControlElement, ControlElementProps} from "../ControlMode"
-import * as React from "react"
+import { ControlElement, ControlElementProps } from 'Controls'
+import * as React from 'react'
 
 export enum ControlIcon {
 	Left = 'has-icons-left',
@@ -14,8 +14,8 @@ export interface ControlProps extends ControlElementProps {
 export class Control extends ControlElement<ControlProps> {
 	public render() {
 		const className = this.classNames('control', this.props.icons)
-		
-		return(
+
+		return (
 			<div className={className}>
 				{this.props.children}
 			</div>

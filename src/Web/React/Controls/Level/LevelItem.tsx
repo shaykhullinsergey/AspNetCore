@@ -1,10 +1,10 @@
 import * as React from 'react'
-import {ControlElement as Control, ControlElementProps as ControlProps} from 'Controls'
+import { ControlElement, ControlElementProps } from 'Controls'
 
-export class LevelItem extends Control<ControlProps> {
+export class LevelItem extends ControlElement<ControlElementProps> {
 	public render() {
 		return (
-			<div className={"level-item"}>
+			<div className={'level-item'}>
 				{this.props.children}
 			</div>
 		)

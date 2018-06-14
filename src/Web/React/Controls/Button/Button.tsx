@@ -1,21 +1,21 @@
 import * as React from 'react'
-import {ControlElement as Control, ControlElementProps as ControlProps} from "Controls/ControlMode"
+import { ControlElement, ControlElementProps } from 'Controls'
 
-export interface ButtonProps extends ControlProps{
-	label: string
-	onClick(): void
+export interface ButtonProps extends ControlElementProps {
+	text: string
+	onClick?: () => void
 }
 
-export class Button extends Control<ButtonProps> {
-	
+export class Button extends ControlElement<ButtonProps> {
+
 	public render() {
-		const className = this.classNames("button")
-		
+		const className = this.classNames('button')
+
 		return (
 			<span
 				className={className}
 				onClick={() => this.props.onClick()}>
-				{this.props.label}
+				{this.props.text}
 			</span>
 		)
 	}

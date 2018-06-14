@@ -1,11 +1,11 @@
 import * as React from 'react'
-import {ControlElement as Control, ControlElementProps as ControlProps} from "Controls"
+import { ControlElement, ControlElementProps } from 'Controls'
 
-export class Content extends Control<ControlProps> {
-	
+export class Content extends ControlElement<ControlElementProps> {
+
 	public render() {
-		const className = this.classNames("content")
-		
+		const className = this.classNames('content')
+
 		return (
 			<div className={className}>
 				{this.props.children}

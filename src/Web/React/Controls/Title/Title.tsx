@@ -1,14 +1,14 @@
-import * as React from "react"
-import {ControlElement as Control, ControlElementProps as ControlProps} from 'Controls'
+import * as React from 'react'
+import { ControlElement, ControlElementProps } from 'Controls'
 
-export interface TitleProps extends ControlProps {
+export interface TitleProps extends ControlElementProps {
 	text: string
 }
 
-export class Title extends Control<TitleProps>{
+export class Title extends ControlElement<TitleProps> {
 	public render() {
 		const className = this.classNames('title')
-		
+
 		return (
 			<p className={className}>{this.props.text}</p>
 		)

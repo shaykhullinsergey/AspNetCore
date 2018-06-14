@@ -1,17 +1,17 @@
 import * as React from 'react'
-import {ControlElement as Control, ControlElementProps as ControlProps} from "Controls"
+import { ControlElement, ControlElementProps } from 'Controls'
 
-export interface DeleteProps extends ControlProps {
+export interface DeleteProps extends ControlElementProps {
 	onClick(): void
 }
 
-export class Delete extends Control<DeleteProps>{
-	
+export class Delete extends ControlElement<DeleteProps> {
+
 	public render() {
-		const className = this.classNames("delete")
-		
+		const className = this.classNames('delete')
+
 		return (
-			<button className={className} />
+			<button className={className}/>
 		)
 	}
 }

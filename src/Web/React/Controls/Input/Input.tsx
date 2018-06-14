@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {ControlElement as Control, ControlElementProps as ControlProps} from 'Controls/ControlMode'
+import { ControlElement, ControlElementProps } from 'Controls'
 
 export enum InputInputType {
 	Text = 'text',
@@ -10,18 +10,18 @@ export enum InputInputType {
 	Phone = 'tel'
 }
 
-export interface InputProps extends ControlProps {
+export interface InputProps extends ControlElementProps {
 	text?: string
 	placeholder?: string
 	inputType?: InputInputType
 	onChange?: (value: string) => void
 }
 
-export class Input extends Control<InputProps> {
-	
+export class Input extends ControlElement<InputProps> {
+
 	public render() {
 		const className = this.classNames('input')
-		
+
 		return (
 			<input className={className}
 				type={this.props.inputType || InputInputType.Text}

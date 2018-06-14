@@ -1,4 +1,4 @@
-import * as React from "react"
+import * as React from 'react'
 import * as classNames from 'classnames'
 
 export enum ControlHelpers {
@@ -117,6 +117,7 @@ export interface ControlElementProps {
 	position?: ControlPosition
 	platform?: ControlPlatform
 	helpers?: ControlHelpers
+	classNames?: string[]
 	readonly?: boolean
 }
 
@@ -131,6 +132,7 @@ export class ControlElement<TProps extends ControlElementProps> extends React.Co
 			this.props.offset,
 			this.props.platform,
 			this.props.helpers,
+			this.props.classNames,
 			classes
 		)
 	}

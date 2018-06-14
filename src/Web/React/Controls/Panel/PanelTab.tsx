@@ -1,4 +1,5 @@
-import {ControlElement, ControlElementProps} from "../ControlMode"
+import * as React from 'react'
+import { ControlElement, ControlElementProps } from 'Controls'
 
 export class PanelTab extends ControlElement<ControlElementProps> {
 	public render() {

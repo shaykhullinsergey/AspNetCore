@@ -1,1 +1,2 @@
-export * from '.'
+export * from './Column'
+export * from './Columns'

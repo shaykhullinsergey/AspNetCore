@@ -1,11 +1,11 @@
 import * as React from 'react'
-import {ControlElement as Control, ControlElementProps as ControlProps} from 'Controls'
+import { ControlElement, ControlElementProps } from 'Controls'
 
-export class FieldBody extends Control<ControlProps> {
-	
+export class FieldBody extends ControlElement<ControlElementProps> {
+
 	public render() {
 		return (
-			<div className={"field-body"}>
+			<div className={'field-body'}>
 				{this.props.children}
 			</div>
 		)

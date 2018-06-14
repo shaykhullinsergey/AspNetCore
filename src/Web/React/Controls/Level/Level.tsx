@@ -1,5 +1,6 @@
 import * as React from 'react'
-import * as classNames from 'classnames'
+import { ControlElement, ControlElementProps } from 'Controls'
+
 
 export enum LevelType {
 	Normal = 'level',
@@ -7,17 +8,15 @@ export enum LevelType {
 	Right = 'level-right'
 }
 
-export interface LevelProps {
-	type?: LevelType
+export interface LevelProps extends ControlElementProps{
+	levelType?: LevelType
 }
 
-export class Level extends React.Component<LevelProps> {
+export class Level extends ControlElement<LevelProps> {
 
 	public render() {
-		const className = classNames(
-			this.props.type || 'level'
-		)
-		
+		const className = this.classNames(this.props.levelType || LevelType.Normal)
+
 		return (
 			<nav className={className}>
 				{this.props.children}

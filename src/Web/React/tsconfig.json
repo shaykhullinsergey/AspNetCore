@@ -10,12 +10,12 @@
     "target": "es5",
     "jsx": "react",
     "moduleResolution": "node",
-		"baseUrl": "./",
+		"baseUrl": ".",
 		"paths": {
-      "Components": ["Components"],
-      "Components/*": ["Components/*"],
-			"Controls": ["Controls"],
-			"Controls/*": ["Controls/*"]
+      "Components": ["src/Components"],
+      "Components/*": ["src/Components/*"],
+			"Controls": ["src/Controls"],
+			"Controls/*": ["src/Controls/*"]
 		}
 	},
   "include": [

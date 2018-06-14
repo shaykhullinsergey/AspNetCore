@@ -13,9 +13,9 @@ module.exports = {
 	resolve: {
 		extensions: [".ts", ".tsx", ".js", ".json"],
 		alias: {
-			Components: path.resolve(__dirname, 'Components/'),
-			Controllers: path.resolve(__dirname, 'Controllers/'),
-			Controls: path.resolve(__dirname, 'Controls/'),
+			Components: path.resolve(__dirname, 'src', 'Components/'),
+			Controllers: path.resolve(__dirname, 'src', 'Controllers/'),
+			Controls: path.resolve(__dirname, 'src', 'Controls/'),
 		}
 	},
 	

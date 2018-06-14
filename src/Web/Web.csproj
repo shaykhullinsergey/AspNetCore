@@ -5,6 +5,8 @@
     <RootNamespace>AspNetCore</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Folder Include="React\src" />
+    <Folder Include="React\tests" />
     <Folder Include="wwwroot\" />
     <Folder Include="wwwroot\js" />
   </ItemGroup>
@@ -18,8 +20,8 @@
     <_ContentIncludedByDefault Remove="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="React\Components\Message\MessageComponent.tsx" />
     <Content Remove="React\node_modules\**" />
+    <Content Include="React\src\Components\Message\MessageComponent.tsx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="React\node_modules\**" />

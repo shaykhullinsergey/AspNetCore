@@ -1,8 +1,9 @@
-import axios, {AxiosPromise} from 'axios'
-import {MessageViewModel, MessagesViewModel} from 'Components/Message';
+import axios, { AxiosPromise } from 'axios'
+import { MessageViewModel, MessagesViewModel } from 'Components/Message'
 
 export interface MessageController {
 	getAllMessages(): AxiosPromise<MessagesViewModel>;
+
 	addMessage(message: MessageViewModel): AxiosPromise;
 }
 

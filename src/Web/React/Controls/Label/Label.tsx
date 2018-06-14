@@ -1,5 +1,5 @@
 import * as React from 'react'
-import * as classNames from 'classnames'
+import {ControlElement as Control, ControlElementProps as ControlProps} from 'Controls'
 
 export enum LabelType {
 	Label = 'label',
@@ -7,26 +7,15 @@ export enum LabelType {
 	Checkbox = 'checkbox'
 }
 
-export enum LabelSize {
-	Small = 'is-small',
-	Normal = 'is-normal',
-	Medium = 'is-medium',
-	Large = 'is-large'
+export interface LabelProps extends ControlProps {
+	text: string
+	labelType?: LabelType
 }
 
-export interface LabelProps {
-	type?: LabelType
-	size?: LabelSize
-	text?: string
-}
-
-export class Label extends React.Component<LabelProps> {
+export class Label extends Control<LabelProps> {
 	
 	public render() {
-		const className = classNames(
-			this.props.type || LabelType.Label,
-			this.props.size
-		)
+		const className = this.classNames(this.props.labelType || LabelType.Label)
 		
 		return (
 			<label className={className}>

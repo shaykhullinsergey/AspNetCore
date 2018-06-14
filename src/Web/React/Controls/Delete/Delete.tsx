@@ -1,24 +1,14 @@
 import * as React from 'react'
-import * as classNames from 'classnames'
+import {ControlElement as Control, ControlElementProps as ControlProps} from "Controls"
 
-export enum DeleteSize {
-	Small = 'is-small',
-	Medium = 'is-medium',
-	Large = 'is-large'
-}
-
-export interface DeleteProps {
-	size?: DeleteSize
+export interface DeleteProps extends ControlProps {
 	onClick(): void
 }
 
-export class Delete extends React.Component<DeleteProps>{
+export class Delete extends Control<DeleteProps>{
 	
 	public render() {
-		const className = classNames(
-			"delete",
-			this.props.size
-		)
+		const className = this.classNames("delete")
 		
 		return (
 			<button className={className} />

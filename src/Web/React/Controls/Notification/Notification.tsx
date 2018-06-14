@@ -1,27 +1,10 @@
 import * as React from 'react'
-import * as classNames from 'classnames'
+import {ControlElement as Control, ControlElementProps as ControlProps} from "Controls"
 
-export enum NotificationType {
-	Primary = 'is-primary',
-	Link = 'is-link',
-	Info = 'is-info',
-	Success = 'is-success',
-	Warning = 'is-warning',
-	Danger = 'is-danger'
-}
-
-export interface NotificationProps {
-	type?: NotificationType
-}
-
-export class Notification extends React.Component<NotificationProps> {
+export class Notification extends Control<ControlProps> {
 	
 	public render() {
-		
-		const className = classNames(
-			"notification",
-			this.props.type
-		)
+		const className = this.classNames("notification")
 		
 		return(
 			<div className={className}>

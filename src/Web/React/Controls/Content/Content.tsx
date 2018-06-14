@@ -1,23 +1,10 @@
 import * as React from 'react'
-import * as classNames from 'classnames'
+import {ControlElement as Control, ControlElementProps as ControlProps} from "Controls"
 
-export enum ContentSize {
-	Small = 'is-small',
-	Medium = 'is-medium',
-	Large = 'is-large'
-}
-
-export interface ContentProps {
-	size?: ContentSize
-}
-
-export class Content extends React.Component<ContentProps> {
+export class Content extends Control<ControlProps> {
 	
 	public render() {
-		const className = classNames(
-			"content",
-			this.props.size
-		)
+		const className = this.classNames("content")
 		
 		return (
 			<div className={className}>

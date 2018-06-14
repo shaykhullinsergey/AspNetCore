@@ -1,13 +1,5 @@
 import * as React from 'react'
-import * as classNames from 'classnames'
-
-export enum FieldType {
-	Normal = '',
-	Addons = 'has-addons',
-	Grouped = 'is-grouped',
-	Horizontal = 'is-horizontal',
-	Expanded = 'is-expanded'
-}
+import {ControlElement as Control, ControlElementProps as ControlProps} from 'Controls'
 
 export enum FieldPosition {
 	AddonsCentered = 'has-addons-centered',
@@ -17,18 +9,13 @@ export enum FieldPosition {
 	GroupedMultiline = 'is-grouped-multiline'
 }
 
-export interface FieldProps {
-	type?: FieldType,
-	position?: FieldPosition
+export interface FieldProps extends ControlProps {
+	fieldPosition?: FieldPosition
 }
 
-export class Field extends React.Component<FieldProps> {
+export class Field extends Control<FieldProps> {
 	public render() {
-		const className = classNames(
-			'field',
-			this.props.type,
-			this.props.position
-		)
+		const className = this.classNames('field', this.props.fieldPosition)
 		
 		return (
 			<div className={className}>

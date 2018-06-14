@@ -1,70 +1,34 @@
 import * as React from 'react'
-import * as classNames from 'classnames'
+import {ControlElement as Control, ControlElementProps as ControlProps} from 'Controls/ControlMode'
 
 export enum InputInputType {
 	Text = 'text',
 	Number = 'number',
 	Password = 'password',
-	Radio = 'radio'
+	Radio = 'radio',
+	Email = 'email',
+	Phone = 'tel'
 }
 
-export enum InputType {
-	Primary = 'is-primary',
-	Info = 'is-info',
-	Success = 'is-success',
-	Warning = 'is-warning',
-	Danger = 'is-danger'
-}
-
-export enum InputSize {
-	Small = 'is-small',
-	Normal = 'is-normal',
-	Medium = 'is-medium',
-	Large = 'is-large'
-}
-
-export enum InputStyle {
-	Normal = '',
-	Rounded = 'is-rounded'
-}
-
-export enum InputState {
-	Normal = '',
-	Hover = 'is-hovered',
-	Focus = 'is-focused',
-	Loading = 'is-loading',
-	Disabled = 'is-disabled',
-	Static = 'is-static'
-}
-
-export interface InputProps {
-	value: string
+export interface InputProps extends ControlProps {
+	text?: string
 	placeholder?: string
-	type?: InputType
-	size?: InputSize
-	style?: InputStyle
-	state?: InputState
 	inputType?: InputInputType
-	onChange(value: string): void
+	onChange?: (value: string) => void
 }
 
-export class Input extends React.Component<InputProps> {
+export class Input extends Control<InputProps> {
 	
 	public render() {
-		const className = classNames(
-			'input',
-			this.props.type,
-			this.props.size, 
-			this.props.style,
-			this.props.state
-		)
+		const className = this.classNames('input')
 		
 		return (
 			<input className={className}
 				type={this.props.inputType || InputInputType.Text}
-				value={this.props.value}
+				value={this.props.text}
 				placeholder={this.props.placeholder}
-				onChange={event => this.props.onChange(event.target.value)}>
+				onChange={event => this.props.onChange(event.target.value)}
+				readOnly={this.props.readonly}>
 			</input>
 		)
 	}

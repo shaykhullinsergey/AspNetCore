@@ -1,9 +1,7 @@
 import * as React from 'react'
 
-import { Content, Box, Delete, Notification, Input, InputInputType } from 'Controls'
+import { Content, Box, Delete, Notification } from 'Controls'
 import { Controller, AddMessageBlock, MessageBlock, MessageViewModel } from 'Components/Message'
-import { Field } from 'Controls/Field/Field'
-import { Label, LabelType } from 'Controls/Label/Label'
 
 export interface MessageComponentState {
 	messages: MessageViewModel[];
@@ -54,22 +52,6 @@ export class MessageComponent extends React.Component<{}, MessageComponentState>
 				</Box>
 				
 				<div id={"ASD"}>
-					<Field>
-						<Content>
-							<Label type={LabelType.Radio}>
-								<Input inputType={InputInputType.Radio}
-									value={""}
-									onChange={() => {}}>
-								</Input>
-								Yes
-								<Input inputType={InputInputType.Radio}
-									value={""}
-									onChange={() => {}}>
-								</Input>
-								No
-							</Label>
-						</Content>
-					</Field>
 				</div>
 			</Content>
 		)

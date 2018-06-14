@@ -1,9 +1,8 @@
 import * as React from 'react'
+import {Field, FieldLabel, FieldBody, Label, ControlElement as Control, Input, InputInputType, ControlState} from 'Controls'
 
-import { Button, ButtonType } from 'Controls/Button'
-import { Input } from 'Controls/Input'
 import { MessageViewModel } from 'Components/Message'
-import { ButtonGroup, ButtonGroupType } from 'Controls/ButtonGroup'
+import {ControlMode} from "Controls/ControlMode"
 
 export interface AddMessageProps {
 	onMessage(message: MessageViewModel): void;
@@ -21,32 +20,40 @@ export class AddMessageBlock extends React.Component<AddMessageProps, AddMessage
 		this.state = { message: { text: '' } }
 	}
 
-	private onAddMessageButtonClick() {
-		const { message } = this.state
-		this.props.onMessage(message)
-
-		this.setState({ message: { text: '' } })
-	}
-
-	private onTextBoxChanged(value: string) {
-		this.setState({ message: { ...this.state.message, text: value } })
-	}
-
 	public render() {
 		return (
 			<div>
-				<Input value={this.state.message.text}
-					onChange={value => this.onTextBoxChanged(value)}/>
+				<Field mode={ControlMode.Horizontal}>
+					<FieldLabel mode={ControlMode.Normal}>
+						<Label text={"Form"} />
+					</FieldLabel>
+					
+					<FieldBody>
+						<Field>
+							<Control>
+								<Input text={"me@example.com"} 
+									inputType={InputInputType.Email}
+									state={ControlState.Static}
+									readonly />
+							</Control>
+						</Field>
+					</FieldBody>
 
-				<ButtonGroup type={ButtonGroupType.Addons}>
-					<Button label={'Add'}
-						type={ButtonType.Dark}
-						onClick={() => this.onAddMessageButtonClick()}/>
-
-					<Button label={'Add'}
-						type={ButtonType.Dark}
-						onClick={() => this.onAddMessageButtonClick()}/>
-				</ButtonGroup>
+					<Field mode={ControlMode.Horizontal}>
+						<FieldLabel mode={ControlMode.Normal}>
+							<Label text={"To"}/>
+						</FieldLabel>
+						
+						<FieldBody>
+							<Field>
+								<Control>
+									<Input inputType={InputInputType.Email} 
+										placeholder={"Recipient email"} />
+								</Control>
+							</Field>
+						</FieldBody>
+					</Field>
+				</Field>
 			</div>)
 	}
 }

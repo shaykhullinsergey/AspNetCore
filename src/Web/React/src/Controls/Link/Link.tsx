@@ -1,17 +1,18 @@
 import * as React from 'react'
-import { Element, TextElementProps } from 'Controls'
+import { ClickElementProps, Element, TextElementProps } from 'Controls'
 
-export interface LinkProps extends TextElementProps {
+export interface LinkProps extends TextElementProps, ClickElementProps {
 	href?: string
 }
 
-export class Link extends Element<LinkProps>{
+export class Link extends Element<LinkProps> {
 	public render() {
 		const className = this.classNames()
 		
 		return(
 			<a className={className} href={this.props.href}>
 				{this.props.text}
+				{this.props.children}
 			</a>
 		)
 	}

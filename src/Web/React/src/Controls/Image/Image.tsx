@@ -7,7 +7,7 @@ export enum ImageSize {
 
 export interface ImageProps extends ElementProps{
 	src: string
-	imageSize: ImageSize
+	imageSize?: ImageSize
 }
 
 export class Image extends Element<ImageProps> {

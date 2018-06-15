@@ -10,11 +10,11 @@ export class Button extends Element<ButtonProps> {
 		const className = this.classNames('button')
 
 		return (
-			<span
+			<button
 				className={className}
 				onClick={() => this.props.onClick()}>
 				{this.props.text}
-			</span>
+			</button>
 		)
 	}
 }

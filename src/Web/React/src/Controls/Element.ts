@@ -27,14 +27,19 @@ export enum Mode {
 	Grouped = 'is-grouped',
 	Horizontal = 'is-horizontal',
 	Vertical = 'is-vertical',
-	Expanded = 'is-expanded'
+	Expanded = 'is-expanded',
+	Dropdown = 'has-dropdown',
+	DropdownUp = 'has-dropdown has-dropdown-up',
+	FixedTop = 'is-fixed-top',
+	FixedBottom = 'is-fixed-bottom',
 }
 
 export enum Position {
 	Normal = '',
 	Left = 'is-left',
 	Center = 'is-centered',
-	Right = 'is-right'
+	Right = 'is-right',
+	Up = 'is-up',
 }
 
 export enum Type {
@@ -59,7 +64,9 @@ export enum Style {
 	Bordered = 'is-bordered',
 	Hoverable = 'is-hoverable',
 	Narrow = 'is-narrow',
+	Transparent = 'is-transparent',
 	Rounded = 'is-rounded',
+	Thin = 'is-thin',
 	Toggle = 'is-toggle',
 	RoundedToggle = 'is-toggle-rounded',
 	Boxed = 'is-boxed'
@@ -73,7 +80,8 @@ export enum State {
 	Active = 'is-active',
 	Loading = 'is-loading',
 	Disabled = 'is-disabled',
-	Static = 'is-static'
+	Static = 'is-static',
+	Current = 'is-current'
 }
 
 export enum Size {
@@ -129,7 +137,7 @@ export interface ElementProps {
 }
 
 export interface TextElementProps extends ElementProps {
-	text: string | JSX.Element
+	text?: string | JSX.Element
 }
 
 export interface ClickElementProps extends ElementProps {

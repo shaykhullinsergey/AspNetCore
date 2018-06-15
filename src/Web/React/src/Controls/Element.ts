@@ -1,20 +1,6 @@
 import * as React from 'react'
 import * as classNames from 'classnames'
 
-export enum Helpers {
-	Clearfix = 'is-clearfix',
-	PulledLeft = 'is-pulled-left',
-	PulledRight = 'is-pulled-right',
-	MarginLess = 'is-marginless',
-	PaddingLess = 'is-paddingless',
-	Overlay = 'is-overlay',
-	Clipped = 'is-clipped',
-	Radiusless = 'is-raduisless',
-	Shadowless = 'is-shadowless',
-	Unselectable = 'is-unselectable',
-	Invisible = 'is-invisible'
-}
-
 export enum Platform {
 	Mobile = 'is-mobile',
 	Desktop = 'is-desktop',
@@ -121,6 +107,27 @@ export enum Offset {
 	Twelve = 'is-offset-12'
 }
 
+export enum Helpers {
+	Clearfix = 'is-clearfix',
+	PulledLeft = 'is-pulled-left',
+	PulledRight = 'is-pulled-right',
+	MarginLess = 'is-marginless',
+	PaddingLess = 'is-paddingless',
+	Overlay = 'is-overlay',
+	Clipped = 'is-clipped',
+	Radiusless = 'is-raduisless',
+	Shadowless = 'is-shadowless',
+	Unselectable = 'is-unselectable',
+	Invisible = 'is-invisible'
+}
+
+export enum Transform {
+	Capitalized = 'is-capitalized',
+	Lowercase = 'is-lowercase',
+	Uppercase = 'is-uppercase',
+	Italic = 'is-italic'
+}
+
 export interface ElementProps {
 	type?: Type
 	mode?: Mode
@@ -132,6 +139,7 @@ export interface ElementProps {
 	position?: Position
 	platform?: Platform
 	helpers?: Helpers
+	transform?: Transform
 	classNames?: string[]
 	readonly?: boolean
 }
@@ -158,6 +166,7 @@ export class Element<TProps extends ElementProps> extends React.Component<TProps
 			this.props.position,
 			this.props.platform,
 			this.props.helpers,
+			this.props.transform,
 			this.props.classNames
 		)
 	}

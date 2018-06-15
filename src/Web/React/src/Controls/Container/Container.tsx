@@ -1,7 +1,7 @@
 import * as React from 'react'
-import { ControlElement, ControlElementProps } from 'Controls'
+import { Element, ElementProps } from 'Controls'
 
-export class Container extends ControlElement<ControlElementProps>{
+export class Container extends Element<ElementProps>{
 	public render() {
 		const className = this.classNames('container')
 		

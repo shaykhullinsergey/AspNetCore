@@ -1,11 +1,11 @@
 import * as React from 'react'
-import { ControlElement, ControlElementProps } from 'Controls'
+import { Element, ElementProps } from 'Controls'
 
-export interface PanelHeaderProps extends ControlElementProps {
+export interface PanelHeaderProps extends ElementProps {
 	text?: string
 }
 
-export class PanelHeader extends ControlElement<PanelHeaderProps> {
+export class PanelHeader extends Element<PanelHeaderProps> {
 	public render() {
 		const className = this.classNames('panel-heading')
 

@@ -15,11 +15,12 @@
       "Components": ["src/Components"],
       "Components/*": ["src/Components/*"],
 			"Controls": ["src/Controls"],
-			"Controls/*": ["src/Controls/*"]
+      "Controls/*": ["src/Controls/*"]
 		}
 	},
   "include": [
-    "./*"
+    "./*",
+		"./src/*"
   ],
 	"compileOnSave": false
 }

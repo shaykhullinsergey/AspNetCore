@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { ControlColumns, ControlSize, ControlState, ControlStyle, ControlType } from 'Controls'
+import {Columnns, Mode, Platform, Size, State, Style, Type} from 'Controls'
 
 import { MessageViewModel } from 'Components/Message'
 import { Container } from 'Controls/Container'
@@ -8,39 +8,30 @@ import { Block } from 'Controls/Block'
 import { Title } from 'Controls/Title'
 import { Subtitle } from 'Controls/Subtitle'
 import { Content } from 'Controls/Content/Content'
-import { Button } from 'Controls/Button/Button'
-import { Box } from 'Controls/Box/Box'
-import { Text } from 'Controls/Text/Text'
-import { Notification } from 'Controls/Notification/Notification'
-import { Delete } from 'Controls/Delete/Delete'
-import { Tag } from 'Controls/Tag/Tag'
-import { Message } from 'Controls/Message/Message'
-import { MessageHeader } from 'Controls/Message/MessageHeader'
-import { MessageBody } from 'Controls/Message/MessageBody'
-import { Menu } from 'Controls/Menu/Menu'
-import { MenuLabel } from 'Controls/Menu/MenuLabel'
-import { MenuList } from 'Controls/Menu/MenuList'
-import { MenuListItem } from 'Controls/Menu/MenuListItem'
-import { Link } from 'Controls/Link/Link'
-import { Hero } from 'Controls/Hero/Hero'
-import { HeroBody } from 'Controls/Hero/HeroBody'
-import { Card } from 'Controls/Card/Card'
-import { CardContent } from 'Controls/Card/CardContent'
-import { CardFooter } from 'Controls/Card/CardFooter'
-import { CardFooterItem } from 'Controls/Card/CardFooterItem'
-import { Level } from 'Controls/Level/Level'
-import { LevelLeft } from 'Controls/Level/LevelLeft'
-import { LevelItem } from 'Controls/Level/LevelItem'
-import { LevelRight } from 'Controls/Level/LevelRight'
-import { Field } from 'Controls/Field/Field'
-import { Control } from 'Controls/Control/Control'
-import { Input, InputInputType } from 'Controls/Input/Input'
-import { Form } from 'Controls/Form/Form'
-import { Label } from 'Controls/Label/Label'
-import { Select } from 'Controls/Select/Select'
-import { Textarea } from 'Controls/Textarea/Textarea'
-import { Columns } from 'Controls/Column/Columns'
-import { Column } from 'Controls/Column/Column'
+import { Button } from 'Controls/Button'
+import { Box } from 'Controls/Box'
+import { Text } from 'Controls/Text'
+import { Notification } from 'Controls/Notification'
+import { Delete } from 'Controls/Delete'
+import { Tag } from 'Controls/Tag'
+import { Message } from 'Controls/Message'
+import { MessageHeader } from 'Controls/Message'
+import { MessageBody } from 'Controls/Message'
+import { Menu, MenuLabel, MenuList, MenuListItem } from 'Controls/Menu'
+import { Link } from 'Controls/Link'
+import { Hero, HeroBody } from 'Controls/Hero'
+import { Card, CardContent, CardFooter, CardFooterItem } from 'Controls/Card'
+import { Level, LevelLeft, LevelItem, LevelRight } from 'Controls/Level'
+import { Field } from 'Controls/Field'
+import { Control } from 'Controls/Control'
+import { Textbox, InputType } from 'Controls/Textbox'
+import { Form } from 'Controls/Form'
+import { Label } from 'Controls/Label'
+import { Select } from 'Controls/Select'
+import { Textarea } from 'Controls/Textarea'
+import { Columns, Column } from 'Controls/Column'
+import {Tiles} from "Controls/Tile/Tiles"
+import {Tile, TileType} from "Controls/Tile/Tile"
 
 export interface MessageComponentState {
 	messages: MessageViewModel[];
@@ -66,76 +57,77 @@ export class MessageComponent extends React.Component<{}, MessageComponentState>
 	public render() {
 
 		return (
-			<Container>
+			<Container platform={Platform.Mobile}>
 				<Block>
 					<Title text={'headings'}
-						columns={ControlColumns.One}/>
+						columns={Columnns.One}/>
 					<Subtitle text={'subtitle'}/>
 				</Block>
 
 				<Block>
 					<Title text={'Content'}/>
-					<Content size={ControlSize.Small}>
+					<Content size={Size.Small}>
 						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit, quae!
 					</Content>
-					<Content size={ControlSize.Medium}>
+					<Content size={Size.Medium}>
 						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit, quae!
 					</Content>
-					<Content size={ControlSize.Large}>
+					<Content size={Size.Large}>
 						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit, quae!
 					</Content>
 				</Block>
 
 				<Block>
-					<Title text={'Buttons'} columns={ControlColumns.One}/>
+					<Title text={'Buttons'} columns={Columnns.One}/>
 					<Button text={'Button'}/>
-					<Button text={'Button'} type={ControlType.White}/>
-					<Button text={'Button'} type={ControlType.Light}/>
-					<Button text={'Button'} type={ControlType.Dark}/>
-					<Button text={'Button'} type={ControlType.Black}/>
-					<Button text={'Button'} type={ControlType.Link}/>
+					<Button text={'Button'} type={Type.White}/>
+					<Button text={'Button'} type={Type.Light}/>
+					<Button text={'Button'} type={Type.Dark}/>
+					<Button text={'Button'} type={Type.Black}/>
+					<Button text={'Button'} type={Type.Link}/>
 				</Block>
 				
 				<Block>
-					<Button text={'Button'} type={ControlType.Primary}/>
-					<Button text={'Button'} type={ControlType.Info}/>
-					<Button text={'Button'} type={ControlType.Success}/>
-					<Button text={'Button'} type={ControlType.Warning}/>
-					<Button text={'Button'} type={ControlType.Danger}/>
+					<Button text={'Button'} type={Type.Primary}/>
+					<Button text={'Button'} type={Type.Info}/>
+					<Button text={'Button'} type={Type.Success}/>
+					<Button text={'Button'} type={Type.Warning}/>
+					<Button text={'Button'} type={Type.Danger}/>
 				</Block>
 
 				<Block>
-					<Button text={'Button'} type={ControlType.Primary} size={ControlSize.Small}/>
-					<Button text={'Button'} type={ControlType.Info} size={ControlSize.Medium}/>
-					<Button text={'Button'} type={ControlType.Success} size={ControlSize.Large}/>
+					<Button text={'Button'} type={Type.Primary} size={Size.Small}/>
+					<Button text={'Button'} type={Type.Primary} size={Size.Normal}/>
+					<Button text={'Button'} type={Type.Info} size={Size.Medium}/>
+					<Button text={'Button'} type={Type.Success} size={Size.Large}/>
 				</Block>
 
 				<Block>
-					<Button text={'Button'} type={ControlType.Primary} style={ControlStyle.Outlined}/>
-					<Button text={'Button'} type={ControlType.Info} style={ControlStyle.Outlined}/>
-					<Button text={'Button'} type={ControlType.Success} style={ControlStyle.Outlined}/>
-					<Button text={'Button'} type={ControlType.Warning} style={ControlStyle.Outlined}/>
-					<Button text={'Button'} type={ControlType.Danger} style={ControlStyle.Outlined}/>
+					<Button text={'Button'} type={Type.Primary} style={Style.Outlined}/>
+					<Button text={'Button'} type={Type.Info} style={Style.Outlined}/>
+					<Button text={'Button'} type={Type.Success} style={Style.Outlined}/>
+					<Button text={'Button'} type={Type.Warning} style={Style.Outlined}/>
+					<Button text={'Button'} type={Type.Danger} style={Style.Outlined}/>
 				</Block>
 
 				<Block>
-					<Button text={'Button'} type={ControlType.Primary} style={ControlStyle.Inverted}/>
-					<Button text={'Button'} type={ControlType.Info} style={ControlStyle.Inverted}/>
-					<Button text={'Button'} type={ControlType.Success} style={ControlStyle.Inverted}/>
-					<Button text={'Button'} type={ControlType.Warning} style={ControlStyle.Inverted}/>
-					<Button text={'Button'} type={ControlType.Danger} style={ControlStyle.Inverted}/>
+					<Button text={'Button'} type={Type.Primary} style={Style.Inverted}/>
+					<Button text={'Button'} type={Type.Info} style={Style.Inverted}/>
+					<Button text={'Button'} type={Type.Success} style={Style.Inverted}/>
+					<Button text={'Button'} type={Type.Warning} style={Style.Inverted}/>
+					<Button text={'Button'} type={Type.Danger} style={Style.Inverted}/>
 				</Block>
 
 				<Block>
-					<Button text={'Button'} state={ControlState.Hovered}/>
-					<Button text={'Button'} state={ControlState.Focused}/>
-					<Button text={'Button'} state={ControlState.Active}/>
-					<Button text={'Button'} state={ControlState.Loading}/>
-					<Button text={'Button'} state={ControlState.Disabled}/>
+					<Button text={'Button'} state={State.Hovered}/>
+					<Button text={'Button'} state={State.Focused}/>
+					<Button text={'Button'} state={State.Active}/>
+					<Button text={'Button'} state={State.Loading}/>
+					<Button text={'Button'} state={State.Disabled}/>
 				</Block>
 				
 				<Block>
-					<Title text={'Box'} columns={ControlColumns.One}/>
+					<Title text={'Box'} columns={Columnns.One}/>
 					<Box>
 						<Title text={"Hello World I'm Box"}/>
 						<Text>
@@ -145,52 +137,52 @@ export class MessageComponent extends React.Component<{}, MessageComponentState>
 				</Block>
 				
 				<Block>
-					<Title text={"Notifications"} columns={ControlColumns.One}/>
+					<Title text={"Notifications"} columns={Columnns.One}/>
 					<Notification>
 						<Delete/>
 						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea error itaque minus.
 					</Notification>
-					<Notification type={ControlType.Primary}>
+					<Notification type={Type.Primary}>
 						<Delete/>
 						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea error itaque minus.
 					</Notification>
-					<Notification type={ControlType.Info}>
+					<Notification type={Type.Info}>
 						<Delete/>
 						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea error itaque minus.
 					</Notification>
-					<Notification type={ControlType.Success}>
+					<Notification type={Type.Success}>
 						<Delete/>
 						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea error itaque minus.
 					</Notification>
-					<Notification type={ControlType.Warning}>
+					<Notification type={Type.Warning}>
 						<Delete/>
 						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea error itaque minus.
 					</Notification>
-					<Notification type={ControlType.Danger}>
+					<Notification type={Type.Danger}>
 						<Delete/>
 						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea error itaque minus.
 					</Notification>
 				</Block>
 				
 				<Block>
-					<Title text={"Tags"} columns={ControlColumns.One}/>
+					<Title text={"Tags"} columns={Columnns.One}/>
 					<Tag text={"Hello"}/>
-					<Tag text={"Hello"} type={ControlType.Black}/>
-					<Tag text={"Hello"} type={ControlType.Dark}/>
-					<Tag text={"Hello"} type={ControlType.Light}/>
-					<Tag text={"Hello"} type={ControlType.White}/>
-					<Tag text={"Hello"} type={ControlType.Primary}/>
-					<Tag text={"Hello"} type={ControlType.Info}/>
-					<Tag text={"Hello"} type={ControlType.Success}/>
-					<Tag text={"Hello"} type={ControlType.Warning}/>
-					<Tag text={"Hello"} type={ControlType.Danger}>
+					<Tag text={"Hello"} type={Type.Black}/>
+					<Tag text={"Hello"} type={Type.Dark}/>
+					<Tag text={"Hello"} type={Type.Light}/>
+					<Tag text={"Hello"} type={Type.White}/>
+					<Tag text={"Hello"} type={Type.Primary}/>
+					<Tag text={"Hello"} type={Type.Info}/>
+					<Tag text={"Hello"} type={Type.Success}/>
+					<Tag text={"Hello"} type={Type.Warning}/>
+					<Tag text={"Hello"} type={Type.Danger}>
 						<Delete/>
 					</Tag>
 				</Block>
 				
 				<Block>
-					<Title text={"Messages"} columns={ControlColumns.One}/>
-					<Message type={ControlType.Primary}>
+					<Title text={"Messages"} columns={Columnns.One}/>
+					<Message type={Type.Primary}>
 						<MessageHeader>
 							<Text>About us</Text>
 						</MessageHeader>
@@ -203,7 +195,7 @@ export class MessageComponent extends React.Component<{}, MessageComponentState>
 							</Text>
 						</MessageBody>
 					</Message>
-					<Message type={ControlType.Success}>
+					<Message type={Type.Success}>
 						<MessageHeader>
 							<Text>About us</Text>
 						</MessageHeader>
@@ -216,7 +208,7 @@ export class MessageComponent extends React.Component<{}, MessageComponentState>
 							</Text>
 						</MessageBody>
 					</Message>
-					<Message type={ControlType.Info}>
+					<Message type={Type.Info}>
 						<MessageHeader>
 							<Text>About us</Text>
 						</MessageHeader>
@@ -229,7 +221,7 @@ export class MessageComponent extends React.Component<{}, MessageComponentState>
 							</Text>
 						</MessageBody>
 					</Message>
-					<Message type={ControlType.Warning}>
+					<Message type={Type.Warning}>
 						<MessageHeader>
 							<Text>About us</Text>
 						</MessageHeader>
@@ -242,9 +234,9 @@ export class MessageComponent extends React.Component<{}, MessageComponentState>
 							</Text>
 						</MessageBody>
 					</Message>
-					<Message type={ControlType.Danger}>
+					<Message type={Type.Danger}>
 						<MessageHeader>
-							<Text>About us</Text>
+							<Text text={"About us"}/>
 						</MessageHeader>
 						<MessageBody>
 							<Text>
@@ -259,21 +251,17 @@ export class MessageComponent extends React.Component<{}, MessageComponentState>
 								
 				<Block>
 					<Menu>
-						<MenuLabel>
-							Label 1
-						</MenuLabel>
+						<MenuLabel text={"Label 1"}/>
 						<MenuList>
 							<MenuListItem>
 								<Link text={"Text 1"}/>
 								<Link text={"Text 2"}/>
 							</MenuListItem>
 						</MenuList>
-						<MenuLabel>
-							Label 2
-						</MenuLabel>
+						<MenuLabel text={"Label 2"}/>
 						<MenuList>
 							<MenuListItem>
-								<Link text={"Text 23"} state={ControlState.Active}/>
+								<Link text={"Text 23"} state={State.Active}/>
 								<MenuList>
 									<MenuListItem>
 										<Link text={"Text 1"}/>
@@ -296,7 +284,7 @@ export class MessageComponent extends React.Component<{}, MessageComponentState>
 							</Container>
 						</HeroBody>
 					</Hero>
-					<Hero type={ControlType.Primary}>
+					<Hero type={Type.Primary}>
 						<HeroBody>
 							<Container>
 								<Title text={"Hero Title"}/>
@@ -304,7 +292,7 @@ export class MessageComponent extends React.Component<{}, MessageComponentState>
 							</Container>
 						</HeroBody>
 					</Hero>
-					<Hero type={ControlType.Success}>
+					<Hero type={Type.Success}>
 						<HeroBody>
 							<Container>
 								<Title text={"Hero Title"}/>
@@ -312,7 +300,7 @@ export class MessageComponent extends React.Component<{}, MessageComponentState>
 							</Container>
 						</HeroBody>
 					</Hero>
-					<Hero type={ControlType.Warning}>
+					<Hero type={Type.Warning}>
 						<HeroBody>
 							<Container>
 								<Title text={"Hero Title"}/>
@@ -320,7 +308,7 @@ export class MessageComponent extends React.Component<{}, MessageComponentState>
 							</Container>
 						</HeroBody>
 					</Hero>
-					<Hero type={ControlType.Danger}>
+					<Hero type={Type.Danger}>
 						<HeroBody>
 							<Container>
 								<Title text={"Hero Title"}/>
@@ -328,7 +316,7 @@ export class MessageComponent extends React.Component<{}, MessageComponentState>
 							</Container>
 						</HeroBody>
 					</Hero>
-					<Hero type={ControlType.Info}>
+					<Hero type={Type.Info}>
 						<HeroBody>
 							<Container>
 								<Title text={"Hero Title"}/>
@@ -371,14 +359,14 @@ export class MessageComponent extends React.Component<{}, MessageComponentState>
 								<Link text={"Deleted"} />
 							</LevelItem>
 							<LevelItem>
-								<Button text={"New"} type={ControlType.Primary}/>
+								<Button text={"New"} type={Type.Primary}/>
 							</LevelItem>
 						</LevelLeft>
 						<LevelRight>
 							<LevelItem>
 								<Field>
 									<Control>
-										<Input placeholder={"Search posts..."}/>
+										<Textbox placeholder={"Search posts..."}/>
 									</Control>
 								</Field>
 							</LevelItem>
@@ -391,18 +379,18 @@ export class MessageComponent extends React.Component<{}, MessageComponentState>
 					<Form>
 						<Field>
 							<Label text={"Name"}/>
-							<Input placeholder={"Enter name"}/>
+							<Textbox placeholder={"Enter name"}/>
 						</Field>
 						<Field>
 							<Label text={"Email"}/>
-							<Input inputType={InputInputType.Email} 
-								type={ControlType.Success}
+							<Textbox inputType={InputType.Email} 
+								type={Type.Success}
 								placeholder={"Enter email"}/>
 						</Field>
 						<Field>
 							<Label text={"Number"}/>
-							<Input inputType={InputInputType.Number}
-								type={ControlType.Danger}
+							<Textbox inputType={InputType.Number}
+								type={Type.Danger}
 								placeholder={"Enter number"}/>
 						</Field>
 						<Field>
@@ -426,16 +414,73 @@ export class MessageComponent extends React.Component<{}, MessageComponentState>
 				</Block>
 				<Block>
 					<Columns>
-						<Column columns={ControlColumns.Six}>
-							<Notification text={"Text 1"} type={ControlType.Danger}/>
+						<Column columns={Columnns.Six}>
+							<Notification text={"Text 1"} type={Type.Danger}/>
 						</Column>
 						<Column>
-							<Notification text={"Text 2"} type={ControlType.Warning}/>
+							<Notification text={"Text 2"} type={Type.Warning}/>
 						</Column>
 						<Column>
-							<Notification text={"Text 3"} type={ControlType.Success}/>
+							<Notification text={"Text 3"} type={Type.Success}/>
 						</Column>
 					</Columns>
+				</Block>
+				<Block>
+					<Button text={"Hello"} type={Type.Primary}/>
+				</Block>
+				
+				<Block>
+					<Tiles>
+						<Tile mode={Mode.Vertical} tileType={TileType.Parent} columns={Columnns.Four}>
+							<Tile tileType={TileType.Child}>
+								<Box>
+									<Title text={"One"}/>
+									<Text>
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+										Proin ornare magna eros, eu pellentesque tortor vestibulum ut.
+										Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
+									</Text>
+								</Box>
+							</Tile>
+							
+							<Tile tileType={TileType.Child}>
+								<Box>
+									<Title text={"Two"}/>
+									<Text>
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+										Proin ornare magna eros, eu pellentesque tortor vestibulum ut.
+										Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
+									</Text>
+								</Box>
+							</Tile>
+						</Tile>
+						
+						<Tile tileType={TileType.Parent}>
+							<Tile tileType={TileType.Child}>
+								<Box>
+									<Title text={"Three"}/>
+									<Text>
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+										Proin ornare magna eros, eu pellentesque tortor vestibulum ut.
+										Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
+									</Text>
+									<Text>
+										Suspendisse varius ligula in molestie lacinia. 
+										Maecenas varius eget ligula a sagittis. Pellentesque interdum, nisl nec interdum maximus, augue diam porttitor lorem, et sollicitudin felis neque sit amet erat.
+										Maecenas imperdiet felis nisi, fringilla luctus felis hendrerit sit amet.
+										Aenean vitae gravida diam, finibus dignissim turpis.
+										Sed eget varius ligula, at volutpat tortor.
+									</Text>
+									<Text>
+										Integer sollicitudin, tortor a mattis commodo, velit urna rhoncus erat, vitae congue lectus dolor consequat libero. 
+										Donec leo ligula, maximus et pellentesque sed, gravida a metus. Cras ullamcorper a nunc ac porta. 
+										Aliquam ut aliquet lacus, quis faucibus libero. Quisque non semper leo.
+									</Text>
+								</Box>
+							</Tile>
+						</Tile>
+						
+					</Tiles>
 				</Block>
 			</Container>
 		)

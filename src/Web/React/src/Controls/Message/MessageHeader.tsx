@@ -1,7 +1,7 @@
 import * as React from 'react'
-import { ControlElement, ControlElementProps } from 'Controls'
+import { Element, ElementProps } from 'Controls'
 
-export class MessageHeader extends ControlElement<ControlElementProps> {
+export class MessageHeader extends Element<ElementProps> {
 
 	public render() {
 		const className = this.classNames('message-header')

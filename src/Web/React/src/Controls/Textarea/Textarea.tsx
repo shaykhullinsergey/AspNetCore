@@ -1,11 +1,11 @@
 import * as React from 'react'
-import { ControlElement, ControlElementProps } from 'Controls'
+import { Element, ElementProps } from 'Controls'
 
-export interface TextareaProps extends ControlElementProps {
+export interface TextareaProps extends ElementProps {
 	placeholder?: string
 }
 
-export class Textarea extends ControlElement<TextareaProps> {
+export class Textarea extends Element<TextareaProps> {
 	public render() {
 		const className = this.classNames('textarea')
 

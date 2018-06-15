@@ -1,11 +1,7 @@
 import * as React from 'react'
-import {ControlElement, ControlElementProps} from 'Controls'
+import {Element, TextElementProps} from 'Controls'
 
-export interface SubtitleProps extends ControlElementProps {
-	text: string
-}
-
-export class Subtitle extends ControlElement<SubtitleProps>{
+export class Subtitle extends Element<TextElementProps>{
 	public render() {
 		const className = this.classNames('subtitle')
 

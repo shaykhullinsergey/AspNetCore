@@ -1,12 +1,10 @@
 import * as React from 'react'
-import { ControlElement, ControlElementProps } from 'Controls'
+import { Element, TextElementProps, ClickElementProps } from 'Controls'
 
-export interface ButtonProps extends ControlElementProps {
-	text: string
-	onClick?: () => void
+export interface ButtonProps extends TextElementProps, ClickElementProps {
 }
 
-export class Button extends ControlElement<ButtonProps> {
+export class Button extends Element<ButtonProps> {
 
 	public render() {
 		const className = this.classNames('button')

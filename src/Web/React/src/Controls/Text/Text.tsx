@@ -1,11 +1,11 @@
 import * as React from 'react'
-import { ControlElement, ControlElementProps } from 'Controls'
+import { Element, ElementProps } from 'Controls'
 
-export interface TextProps extends ControlElementProps{
-	text?: string
+export interface TextProps extends ElementProps{
+	text?: string | JSX.Element
 }
 
-export class Text extends ControlElement<TextProps>{
+export class Text extends Element<TextProps>{
 	public render() {
 		const className = this.classNames()
 		

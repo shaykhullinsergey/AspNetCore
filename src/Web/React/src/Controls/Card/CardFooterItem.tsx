@@ -1,7 +1,7 @@
 import * as React from 'react'
-import { ControlElement, ControlElementProps } from '../ControlElement'
+import { Element, ElementProps } from 'Controls'
 
-export class CardFooterItem extends ControlElement<ControlElementProps> {
+export class CardFooterItem extends Element<ElementProps> {
 
 	public render() {
 		const className = this.classNames('card-footer-item')

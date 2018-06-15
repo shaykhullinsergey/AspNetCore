@@ -1,11 +1,7 @@
 import * as React from 'react'
-import { ControlElement, ControlElementProps } from 'Controls'
+import { Element, ClickElementProps } from 'Controls'
 
-export interface DeleteProps extends ControlElementProps {
-	onClick?: () => void
-}
-
-export class Delete extends ControlElement<DeleteProps> {
+export class Delete extends Element<ClickElementProps> {
 
 	public render() {
 		const className = this.classNames('delete')

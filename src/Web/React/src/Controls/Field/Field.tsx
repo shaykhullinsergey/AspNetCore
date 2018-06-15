@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { ControlElement, ControlElementProps } from 'Controls'
+import { Element, ElementProps } from 'Controls'
 
 export enum FieldPosition {
 	AddonsCentered = 'has-addons-centered',
@@ -9,11 +9,11 @@ export enum FieldPosition {
 	GroupedMultiline = 'is-grouped-multiline'
 }
 
-export interface FieldProps extends ControlElementProps {
+export interface FieldProps extends ElementProps {
 	fieldPosition?: FieldPosition
 }
 
-export class Field extends ControlElement<FieldProps> {
+export class Field extends Element<FieldProps> {
 	public render() {
 		const className = this.classNames('field', this.props.fieldPosition)
 

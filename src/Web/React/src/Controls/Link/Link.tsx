@@ -1,16 +1,18 @@
-import { ControlElement, ControlElementProps } from '../ControlElement'
 import * as React from 'react'
+import { Element, TextElementProps } from 'Controls'
 
-export interface LinkProps extends ControlElementProps{
-	text: string
+export interface LinkProps extends TextElementProps {
+	href?: string
 }
 
-export class Link extends ControlElement<LinkProps>{
+export class Link extends Element<LinkProps>{
 	public render() {
 		const className = this.classNames()
 		
 		return(
-			<a className={className}>{this.props.text}</a>
+			<a className={className} href={this.props.href}>
+				{this.props.text}
+			</a>
 		)
 	}
 }

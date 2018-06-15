@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as classNames from 'classnames'
 
-export enum ControlHelpers {
+export enum Helpers {
 	Clearfix = 'is-clearfix',
 	PulledLeft = 'is-pulled-left',
 	PulledRight = 'is-pulled-right',
@@ -15,27 +15,30 @@ export enum ControlHelpers {
 	Invisible = 'is-invisible'
 }
 
-export enum ControlPlatform {
+export enum Platform {
 	Mobile = 'is-mobile',
 	Desktop = 'is-desktop',
 	Fullwidth = 'is-fullwidth'
 }
 
-export enum ControlMode {
+export enum Mode {
 	Normal = 'is-normal',
 	Addons = 'has-addons',
 	Grouped = 'is-grouped',
 	Horizontal = 'is-horizontal',
+	Vertical = 'is-vertical',
 	Expanded = 'is-expanded'
 }
 
-export enum ControlPosition {
-	Left = '',
+export enum Position {
+	Normal = '',
+	Left = 'is-left',
 	Center = 'is-centered',
 	Right = 'is-right'
 }
 
-export enum ControlType {
+export enum Type {
+	Normal = '',
 	White = 'is-white',
 	Light = 'is-light',
 	Dark = 'is-dark',
@@ -49,11 +52,12 @@ export enum ControlType {
 	Danger = 'is-danger'
 }
 
-export enum ControlStyle {
+export enum Style {
 	Outlined = 'is-outlined',
 	Inverted = 'is-inverted',
 	Striped = 'is-striped',
 	Bordered = 'is-bordered',
+	Hoverable = 'is-hoverable',
 	Narrow = 'is-narrow',
 	Rounded = 'is-rounded',
 	Toggle = 'is-toggle',
@@ -61,7 +65,7 @@ export enum ControlStyle {
 	Boxed = 'is-boxed'
 }
 
-export enum ControlState {
+export enum State {
 	Normal = 'is-normal',
 	Selected = 'is-selected',
 	Hovered = 'is-hovered',
@@ -72,14 +76,14 @@ export enum ControlState {
 	Static = 'is-static'
 }
 
-export enum ControlSize {
+export enum Size {
 	Small = 'is-small',
 	Normal = '',
 	Medium = 'is-medium',
 	Large = 'is-large',
 }
 
-export enum ControlColumns {
+export enum Columnns {
 	One = 'is-1',
 	Two = 'is-2',
 	Three = 'is-3',
@@ -94,7 +98,7 @@ export enum ControlColumns {
 	Twelve = 'is-12'
 }
 
-export enum ControlOffset {
+export enum Offset {
 	One = 'is-offset-1',
 	Two = 'is-offset-2',
 	Three = 'is-offset-3',
@@ -109,34 +113,44 @@ export enum ControlOffset {
 	Twelve = 'is-offset-12'
 }
 
-export interface ControlElementProps {
-	type?: ControlType
-	mode?: ControlMode
-	style?: ControlStyle
-	state?: ControlState
-	size?: ControlSize
-	columns?: ControlColumns
-	offset?: ControlOffset
-	position?: ControlPosition
-	platform?: ControlPlatform
-	helpers?: ControlHelpers
+export interface ElementProps {
+	type?: Type
+	mode?: Mode
+	style?: Style
+	state?: State
+	size?: Size
+	columns?: Columnns
+	offset?: Offset
+	position?: Position
+	platform?: Platform
+	helpers?: Helpers
 	classNames?: string[]
 	readonly?: boolean
 }
 
-export class ControlElement<TProps extends ControlElementProps> extends React.Component<TProps> {
+export interface TextElementProps extends ElementProps {
+	text: string | JSX.Element
+}
+
+export interface ClickElementProps extends ElementProps {
+	onClick?: () => void
+}
+
+export class Element<TProps extends ElementProps> extends React.Component<TProps> {
 	protected classNames(...classes: string[]) {
 		return classNames(
+			classes,
 			this.props.type,
+			this.props.mode,
 			this.props.style,
 			this.props.state,
 			this.props.size,
 			this.props.columns,
 			this.props.offset,
+			this.props.position,
 			this.props.platform,
 			this.props.helpers,
-			this.props.classNames,
-			classes
+			this.props.classNames
 		)
 	}
 }

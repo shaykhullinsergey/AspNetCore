@@ -1,11 +1,11 @@
 import * as React from 'react'
-import { ControlElement, ControlElementProps } from 'Controls'
+import { Element, ElementProps } from 'Controls'
 
-export interface NotificationProps extends ControlElementProps {
+export interface NotificationProps extends ElementProps {
 	text?: string
 }
 
-export class Notification extends ControlElement<NotificationProps> {
+export class Notification extends Element<NotificationProps> {
 
 	public render() {
 		const className = this.classNames('notification')

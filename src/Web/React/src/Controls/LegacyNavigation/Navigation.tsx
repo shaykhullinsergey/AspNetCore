@@ -1,7 +1,7 @@
 import * as React from 'react'
-import { ControlElement, ControlElementProps } from '../ControlElement'
+import { Element, ElementProps } from '../Element'
 
-export class Navigation extends ControlElement<ControlElementProps> {
+export class Navigation extends Element<ElementProps> {
 
 	public render() {
 		const className = this.classNames('nav')
@@ -14,7 +14,7 @@ export class Navigation extends ControlElement<ControlElementProps> {
 	}
 }
 
-export class NavigationLeft extends ControlElement<ControlElementProps> {
+export class NavigationLeft extends Element<ElementProps> {
 
 	public render() {
 		const className = this.classNames('nav-left')
@@ -27,7 +27,7 @@ export class NavigationLeft extends ControlElement<ControlElementProps> {
 	}
 }
 
-export class NavigationCenter extends ControlElement<ControlElementProps> {
+export class NavigationCenter extends Element<ElementProps> {
 
 	public render() {
 		const className = this.classNames('nav-center')
@@ -40,7 +40,7 @@ export class NavigationCenter extends ControlElement<ControlElementProps> {
 	}
 }
 
-export class NavigationRight extends ControlElement<ControlElementProps> {
+export class NavigationRight extends Element<ElementProps> {
 
 	public render() {
 		const className = this.classNames('nav-center')

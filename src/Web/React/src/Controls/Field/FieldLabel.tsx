@@ -1,8 +1,7 @@
 import * as React from 'react'
-import { ControlElement, ControlElementProps } from 'Controls'
+import { Element, ElementProps } from 'Controls'
 
-
-export class FieldLabel extends ControlElement<ControlElementProps> {
+export class FieldLabel extends Element<ElementProps> {
 
 	public render() {
 		const className = this.classNames('field-label')

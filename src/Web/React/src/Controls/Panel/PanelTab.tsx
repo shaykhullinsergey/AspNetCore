@@ -1,7 +1,7 @@
 import * as React from 'react'
-import { ControlElement, ControlElementProps } from 'Controls'
+import { Element, ElementProps } from 'Controls'
 
-export class PanelTab extends ControlElement<ControlElementProps> {
+export class PanelTab extends Element<ElementProps> {
 	public render() {
 		const className = this.classNames()
 
@@ -13,7 +13,7 @@ export class PanelTab extends ControlElement<ControlElementProps> {
 	}
 }
 
-export class PanelIcon extends ControlElement<ControlElementProps> {
+export class PanelIcon extends Element<ElementProps> {
 	public render() {
 		const className = this.classNames('panel-icon')
 

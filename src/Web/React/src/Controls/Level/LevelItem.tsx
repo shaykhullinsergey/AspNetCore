@@ -1,7 +1,7 @@
 import * as React from 'react'
-import { ControlElement, ControlElementProps } from 'Controls'
+import { Element, ElementProps } from 'Controls'
 
-export class LevelItem extends ControlElement<ControlElementProps> {
+export class LevelItem extends Element<ElementProps> {
 	public render() {
 		return (
 			<p className={'level-item'}>

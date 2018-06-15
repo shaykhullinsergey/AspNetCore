@@ -1,7 +1,7 @@
 import * as React from 'react'
-import { ControlElement, ControlElementProps } from 'Controls'
+import {Element, ElementProps} from 'Controls'
 
-export class Select extends ControlElement<ControlElementProps> {
+export class Select extends Element<ElementProps> {
 	public render() {
 		const className = this.classNames('select')
 
@@ -14,3 +14,4 @@ export class Select extends ControlElement<ControlElementProps> {
 		)
 	}
 }
+

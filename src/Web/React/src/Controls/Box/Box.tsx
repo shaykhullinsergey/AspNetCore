@@ -1,7 +1,7 @@
 import * as React from 'react'
-import { ControlElement, ControlElementProps } from 'Controls'
+import { Element, ElementProps } from 'Controls'
 
-export class Box extends ControlElement<ControlElementProps> {
+export class Box extends Element<ElementProps> {
 
 	public render() {
 		return (

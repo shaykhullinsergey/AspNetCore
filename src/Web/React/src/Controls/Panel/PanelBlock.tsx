@@ -1,7 +1,7 @@
 import * as React from 'react'
-import { ControlElement, ControlElementProps } from 'Controls'
+import { Element, ElementProps } from 'Controls'
 
-export class PanelBlock extends ControlElement<ControlElementProps> {
+export class PanelBlock extends Element<ElementProps> {
 	public render() {
 		const className = this.classNames('panel-block')
 

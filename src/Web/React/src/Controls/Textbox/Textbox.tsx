@@ -1,34 +1,35 @@
 import * as React from 'react'
-import { ControlElement, ControlElementProps } from 'Controls'
+import { Element, ElementProps } from 'Controls'
 
-export enum InputInputType {
+export enum InputType {
 	Text = 'text',
 	Number = 'number',
 	Password = 'password',
-	Radio = 'radio',
 	Email = 'email',
-	Phone = 'tel'
+	Phone = 'tel',
 }
 
-export interface InputProps extends ControlElementProps {
+export interface TextboxProps extends ElementProps {
 	text?: string
 	placeholder?: string
-	inputType?: InputInputType
+	inputType?: InputType
 	onChange?: (value: string) => void
+	checked?: boolean
 }
 
-export class Input extends ControlElement<InputProps> {
+export class Textbox extends Element<TextboxProps> {
 
 	public render() {
 		const className = this.classNames('input')
 
 		return (
 			<input className={className}
-				type={this.props.inputType || InputInputType.Text}
+				type={this.props.inputType || InputType.Text}
 				value={this.props.text}
 				placeholder={this.props.placeholder}
 				onChange={event => this.props.onChange(event.target.value)}
-				readOnly={this.props.readonly}>
+				readOnly={this.props.readonly}
+				checked={this.props.checked}>
 			</input>
 		)
 	}

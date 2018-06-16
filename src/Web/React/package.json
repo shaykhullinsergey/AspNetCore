@@ -16,6 +16,7 @@
     "axios": "^0.18.0",
     "bulma": "^0.7.1",
     "bulma-badge": "^2.0.0",
+    "bulma-checkradio": "^2.1.0",
     "bulma-pageloader": "^2.1.0",
     "bulma-switch": "^2.0.0",
     "bulma-tooltip": "^2.0.1",
@@ -25,12 +26,18 @@
   },
   "devDependencies": {
     "awesome-typescript-loader": "^5.0.0",
+    "compression-webpack-plugin": "^1.1.11",
     "css-loader": "^0.28.11",
+    "mini-css-extract-plugin": "^0.4.0",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.0.3",
     "source-map-loader": "^0.2.3",
     "style-loader": "^0.21.0",
     "typescript": "^2.9.1",
+    "uglifyjs-webpack-plugin": "^1.2.5",
+    "webpack": "^4.12.0",
+    "webpack-bundle-analyzer": "^2.13.1",
+    "webpack-cli": "^3.0.8",
     "webpack-livereload-plugin": "^2.1.1"
   }
 }

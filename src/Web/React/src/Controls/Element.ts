@@ -18,7 +18,8 @@ export enum Mode {
 	DropdownUp = 'has-dropdown has-dropdown-up',
 	FixedTop = 'is-fixed-top',
 	FixedBottom = 'is-fixed-bottom',
-	RightToLeft = 'is-rtl'
+	RightToLeft = 'is-rtl',
+	NoBorder = 'has-no-border'
 }
 
 export enum Position {
@@ -154,7 +155,11 @@ export interface ClickElementProps extends ElementProps {
 	onClick?: () => void
 }
 
-export class Element<TProps extends ElementProps> extends React.Component<TProps> {
+export interface ChangeElementProps extends ElementProps {
+	onChange?: (value: string) => void
+}
+
+export class Element<TProps extends ElementProps, TState = {}> extends React.Component<TProps, TState> {
 	protected classNames(...classes: string[]) {
 		return classNames(
 			classes,

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Element, ElementProps } from 'Controls'
+import { ChangeElementProps, Element } from 'controls'
 
 export enum InputType {
 	Text = 'text',
@@ -9,25 +9,38 @@ export enum InputType {
 	Phone = 'tel',
 }
 
-export interface TextboxProps extends ElementProps {
-	text?: string
+export interface TextboxProps extends ChangeElementProps {
 	placeholder?: string
 	inputType?: InputType
-	onChange?: (value: string) => void
 	checked?: boolean
 }
 
-export class Textbox extends Element<TextboxProps> {
+export interface TextboxState {
+	value?: string
+}
 
+export class Textbox extends Element<TextboxProps, TextboxState> {
+
+	constructor(props: TextboxProps) {
+		super(props)
+		
+		this.state = {value: null}
+	}
+	
+	private onChange(value: string) {
+		this.setState({value: value})
+		this.props.onChange && this.props.onChange(value)
+	}
+	
 	public render() {
 		const className = this.classNames('input')
 
 		return (
 			<input className={className}
 				type={this.props.inputType || InputType.Text}
-				value={this.props.text}
+				value={this.state.value}
 				placeholder={this.props.placeholder}
-				onChange={event => this.props.onChange(event.target.value)}
+				onChange={event => this.onChange(event.target.value)}
 				readOnly={this.props.readonly}
 				checked={this.props.checked}>
 			</input>

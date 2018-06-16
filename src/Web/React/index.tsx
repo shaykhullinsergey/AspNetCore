@@ -1,9 +1,9 @@
+import 'bulma-aspnetcore'
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
-import 'bulma'
 
-import { MessageComponent } from 'Components/Message'
+import { MessageComponent } from 'components/Message'
 
 ReactDOM.render(
-	<MessageComponent />,
+	<MessageComponent/>,
 	document.getElementById('react'))

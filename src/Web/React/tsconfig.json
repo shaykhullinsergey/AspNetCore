@@ -12,10 +12,11 @@
     "moduleResolution": "node",
 		"baseUrl": ".",
 		"paths": {
-      "Components": ["src/Components"],
-      "Components/*": ["src/Components/*"],
-			"Controls": ["src/Controls"],
-      "Controls/*": ["src/Controls/*"]
+      "components": ["src/Components"],
+      "components/*": ["src/Components/*"],
+			"controls": ["src/Controls"],
+      "controls/*": ["src/Controls/*"],
+			"bulma-aspnetcore/*": ["src/Bulma/*"]
 		}
 	},
   "include": [

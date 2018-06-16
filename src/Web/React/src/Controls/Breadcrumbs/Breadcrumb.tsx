@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { Element, TextElementProps } from 'Controls'
-import { Link } from 'Controls/Link'
+import { Element, TextElementProps } from 'controls'
+import { Link } from 'controls/Link'
 
 
 export class Breadcrumb extends Element<TextElementProps> {

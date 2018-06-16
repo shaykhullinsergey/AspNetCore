@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { ClickElementProps, Element, TextElementProps } from 'Controls'
+import { ClickElementProps, Element, TextElementProps } from 'controls'
 
 export interface LinkProps extends TextElementProps, ClickElementProps {
 	href?: string

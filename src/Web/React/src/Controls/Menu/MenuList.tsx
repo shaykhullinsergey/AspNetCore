@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Element, ElementProps } from 'Controls'
+import { Element, ElementProps } from 'controls'
 
 export class MenuList extends Element<ElementProps> {
 	public render() {

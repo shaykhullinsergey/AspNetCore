@@ -1,76 +1,76 @@
 import * as React from 'react'
 
-import { Columnns, Mode, Platform, Size, State, Style, Type, Position } from 'Controls'
+import { Columnns, Mode, Platform, Size, State, Style, Type, Position } from 'controls'
 
-import { MessageViewModel } from 'Components/Message'
-import { Container } from 'Controls/Container'
-import { Block } from 'Controls/Block'
-import { Title } from 'Controls/Title'
-import { Subtitle } from 'Controls/Subtitle'
-import { Content } from 'Controls/Content/Content'
-import { Button } from 'Controls/Button'
-import { Box } from 'Controls/Box'
-import { Text } from 'Controls/Text'
-import { Notification } from 'Controls/Notification'
-import { Delete } from 'Controls/Delete'
-import { Tag } from 'Controls/Tag'
-import { Message } from 'Controls/Message'
-import { MessageHeader } from 'Controls/Message'
-import { MessageBody } from 'Controls/Message'
-import { Menu, MenuLabel, MenuList, MenuListItem } from 'Controls/Menu'
-import { Link } from 'Controls/Link'
-import { Hero, HeroBody } from 'Controls/Hero'
-import { Card, CardContent, CardFooter, CardFooterItem } from 'Controls/Card'
-import { Level, LevelLeft, LevelItem, LevelRight } from 'Controls/Level'
-import { Field } from 'Controls/Field'
-import { Control } from 'Controls/Control'
-import { Textbox, InputType } from 'Controls/Textbox'
-import { Form } from 'Controls/Form'
-import { Label } from 'Controls/Label'
-import { Select } from 'Controls/Select'
-import { Textarea } from 'Controls/Textarea'
-import { Columns, Column } from 'Controls/Column'
-import { Tiles, Tile, TileType } from 'Controls/Tile'
-import { Breadcrumbs, Breadcrumb, Separator } from 'Controls/Breadcrumbs'
+import { MessageViewModel } from 'components/Message'
+import { Container } from 'controls/Container'
+import { Block } from 'controls/Block'
+import { Title } from 'controls/Title'
+import { Subtitle } from 'controls/Subtitle'
+import { Content } from 'controls/Content/Content'
+import { Button } from 'controls/Button'
+import { Box } from 'controls/Box'
+import { Text } from 'controls/Text'
+import { Notification } from 'controls/Notification'
+import { Delete } from 'controls/Delete'
+import { Tag } from 'controls/Tag'
+import { Message } from 'controls/Message'
+import { MessageHeader } from 'controls/Message'
+import { MessageBody } from 'controls/Message'
+import { Menu, MenuLabel, MenuList, MenuListItem } from 'controls/Menu'
+import { Link } from 'controls/Link'
+import { Hero, HeroBody } from 'controls/Hero'
+import { Card, CardContent, CardFooter, CardFooterItem } from 'controls/Card'
+import { Level, LevelLeft, LevelItem, LevelRight } from 'controls/Level'
+import { Field } from 'controls/Field'
+import { Control } from 'controls/Control'
+import { Textbox, InputType } from 'controls/Textbox'
+import { Form } from 'controls/Form'
+import { Label } from 'controls/Label'
+import { Select, SelectItem } from 'controls/Select'
+import { Textarea } from 'controls/Textarea'
+import { Columns, Column } from 'controls/Column'
+import { Tiles, Tile, TileType } from 'controls/Tile'
+import { Breadcrumbs, Breadcrumb, Separator } from 'controls/Breadcrumbs'
 
-import { Dropdown } from 'Controls/Dropdown'
-import { DropdownDivider } from 'Controls/Dropdown'
-import { DropdownItem } from 'Controls/Dropdown'
-import { DropdownContent } from 'Controls/Dropdown'
-import { DropdownMenu } from 'Controls/Dropdown'
-import { DropdownTrigger } from 'Controls/Dropdown'
+import { Dropdown } from 'controls/Dropdown'
+import { DropdownDivider } from 'controls/Dropdown'
+import { DropdownItem } from 'controls/Dropdown'
+import { DropdownContent } from 'controls/Dropdown'
+import { DropdownMenu } from 'controls/Dropdown'
+import { DropdownTrigger } from 'controls/Dropdown'
 
-import { Modal, ModalCard, ModalCardBody, ModalCardFooter, ModalCardHeader, ModalCardTitle } from 'Controls/Modal'
-import { Checkbox } from 'Controls/Checkbox'
-import { Radio } from 'Controls/Radio'
+import { Modal, ModalCard, ModalCardBody, ModalCardFooter, ModalCardHeader, ModalCardTitle } from 'controls/Modal'
+import { CheckBox, CheckBoxType } from 'controls/CheckBox'
+import { Radio } from 'controls/Radio'
 
 import {
 	Navbar,
 	NavbarBrand,
-	NavbarBurger, 
-	NavbarDivider, 
-	NavbarDropdown, 
+	NavbarBurger,
+	NavbarDivider,
+	NavbarDropdown,
 	NavbarEnd,
 	NavbarItem,
 	NavbarLink,
 	NavbarMenu,
 	NavbarStart
-} from 'Controls/Navbar'
+} from 'controls/Navbar'
 
 import {
-	Pagination, 
+	Pagination,
 	PaginationLink,
 	PaginationList,
 	PaginationListItem,
 	PaginationNext,
-	PaginationPrevious, 
+	PaginationPrevious,
 	PaginationRange
-} from 'Controls/Pagination'
+} from 'controls/Pagination'
 
-import { Switch } from 'Controls/Switch'
-import { Badge, BadgePosition, BadgeType, SpanBadge } from 'Controls/Badge'
-import { Tooltip, TooltipPosition, TooltipType } from 'Controls/Tooltip'
-import { Pageloader } from 'Controls/Pageloader'
+import { Switch } from 'controls/Switch'
+import { Badge, BadgePosition, BadgeType, SpanBadge } from 'controls/Badge'
+import { Tooltip, TooltipPosition, TooltipType } from 'controls/Tooltip'
+import { Pageloader } from 'controls/Pageloader'
 
 export interface MessageComponentState {
 	messages: MessageViewModel[];
@@ -83,17 +83,27 @@ export class MessageComponent extends React.Component<{}, MessageComponentState>
 
 	constructor(props: {}) {
 		super(props)
-		this.state = { messages: null, state: null, switch: false, pageloader: State.Active }
+		this.state = { messages: null, state: null, switch: false, pageloader: null }
 	}
 
 	public componentDidMount() {
-		setInterval(() => {this.setState({...this.state, pageloader: null})}, 2000)
+		
 	}
 
 	public render() {
 
 		return (
 			<Container platform={Platform.Mobile}>
+				<Block>
+					<Button text={"Pageloader"} onClick={() => {
+						this.setState({...this.state, pageloader: State.Active})
+						
+						setTimeout(() => {
+							this.setState({ ...this.state, pageloader: null })
+						}, 2000)
+					}}/>
+				</Block>
+				
 				<Block>
 					<Title text={'headings'}
 						columns={Columnns.One}/>
@@ -426,25 +436,26 @@ export class MessageComponent extends React.Component<{}, MessageComponentState>
 						</Field>
 						<Field>
 							<Label text={'Number'}/>
-							<Textbox inputType={InputType.Number}
-								type={Type.Danger}
-								placeholder={'Enter number'}/>
+							<Textbox type={Type.Danger}
+								inputType={InputType.Number}
+								placeholder={'Enter number'}
+								onChange={value => console.log(value)}/>
 						</Field>
 						<Field>
 							<Label text={'Package'}/>
 							<Control>
-								<Select>
-									<option>Select Dropdown</option>
-									<option>Simple</option>
-									<option>Standard</option>
-									<option>Super</option>
+								<Select text={"Select mode"} onChange={value => console.log(value)}>
+									<SelectItem text={"Simple"}/>
+									<SelectItem text={"Standard"}/>
+									<SelectItem text={"Super"}/>
 								</Select>
 							</Control>
 						</Field>
 						<Field>
 							<Label text={'Message'}/>
 							<Control>
-								<Textarea placeholder={'Message'}/>
+								<Textarea placeholder={'Message'}
+									onChange={value => console.log(value)}/>
 							</Control>
 						</Field>
 					</Form>
@@ -521,121 +532,134 @@ export class MessageComponent extends React.Component<{}, MessageComponentState>
 
 					</Tiles>
 				</Block>
-				
+
 				<Block>
 					<Breadcrumbs separator={Separator.Arrow}>
-						<Breadcrumb text={"Bulma"}/>
-						<Breadcrumb text={"Documentation"}/>
-						<Breadcrumb text={"Components"}/>
-						<Breadcrumb text={"Breadcrumb"} state={State.Active}/>
+						<Breadcrumb text={'Bulma'}/>
+						<Breadcrumb text={'Documentation'}/>
+						<Breadcrumb text={'Components'}/>
+						<Breadcrumb text={'Breadcrumb'} state={State.Active}/>
 					</Breadcrumbs>
 				</Block>
-				
+
 				<Block>
 					<Dropdown state={this.state.state}>
 						<DropdownTrigger>
-							<Button text={"Dropdown button"} onClick={() => {
+							<Button text={'Dropdown button'} onClick={() => {
 								if (this.state.state) {
-									this.setState({state: null})
+									this.setState({ state: null })
 								} else {
-									this.setState({state: State.Active})
+									this.setState({ state: State.Active })
 								}
 							}}/>
 						</DropdownTrigger>
 						<DropdownMenu>
 							<DropdownContent>
-								<DropdownItem text={"Item 1"}/>
-								<DropdownItem text={"Item 2"}/>
-								<DropdownItem text={"Item 3"} state={State.Active}/>
+								<DropdownItem text={'Item 1'}/>
+								<DropdownItem text={'Item 2'}/>
+								<DropdownItem text={'Item 3'} state={State.Active}/>
 								<DropdownDivider/>
-								<DropdownItem text={"Item 4"}/>
+								<DropdownItem text={'Item 4'}/>
 							</DropdownContent>
 						</DropdownMenu>
 					</Dropdown>
 
 					<Dropdown state={this.state.state} position={Position.Up}>
 						<DropdownTrigger>
-							<Button text={"Dropdown button"} onClick={() => {
+							<Button text={'Dropdown button'} onClick={() => {
 								if (this.state.state) {
-									this.setState({state: null})
+									this.setState({ state: null })
 								} else {
-									this.setState({state: State.Active})
+									this.setState({ state: State.Active })
 								}
 							}}/>
 						</DropdownTrigger>
 						<DropdownMenu>
 							<DropdownContent>
-								<DropdownItem text={"Item 1"}/>
-								<DropdownItem text={"Item 2"}/>
-								<DropdownItem text={"Item 3"} state={State.Active}/>
+								<DropdownItem text={'Item 1'}/>
+								<DropdownItem text={'Item 2'}/>
+								<DropdownItem text={'Item 3'} state={State.Active}/>
 								<DropdownDivider/>
-								<DropdownItem text={"Item 4"}/>
+								<DropdownItem text={'Item 4'}/>
 							</DropdownContent>
 						</DropdownMenu>
 					</Dropdown>
 				</Block>
-				
+
 				<Block>
-					<Checkbox text={"Check"}/>
-					<Radio name={"r1"}/>
-					<Radio name={"r1"}/>
-					<Radio name={"r2"}/>
-					<Radio name={"r2"}/>
-					<Radio name={"r2"}/>
+					<CheckBox name={'CH'} checked={true} text={'Check'}/>
+					<Field>
+						<Radio id={"asd"} group={'r1'}/>
+						<Radio id={"asd1"} group={'r1'}/>
+						<Radio id={"asd2"} group={'r2'}/>
+						<Radio id={"asd3"} group={'r2'}/>
+						<Radio id={"asd4"} group={'r2'}/>
+					</Field>
 				</Block>
-				
+
 				<Block>
 					<Modal state={this.state.state}>
 						<ModalCard>
 							<ModalCardHeader>
-								<ModalCardTitle text={"Modal title"}/>
+								<ModalCardTitle text={'Modal title'}/>
 								<Delete/>
 							</ModalCardHeader>
 							<ModalCardBody>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper dui. Fusce erat odio, sollicitudin vel erat vel, interdum mattis neque.
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper dui. Fusce erat odio, sollicitudin vel erat vel, interdum mattis neque.
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper dui. Fusce erat odio, sollicitudin vel erat vel, interdum mattis neque.
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper dui. Fusce erat odio, sollicitudin vel erat vel, interdum mattis neque.
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper dui. Fusce erat odio, sollicitudin vel erat vel, interdum mattis neque.
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend
+								gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper dui. Fusce erat
+								odio, sollicitudin vel erat vel, interdum mattis neque.
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend
+								gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper dui. Fusce erat
+								odio, sollicitudin vel erat vel, interdum mattis neque.
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend
+								gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper dui. Fusce erat
+								odio, sollicitudin vel erat vel, interdum mattis neque.
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend
+								gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper dui. Fusce erat
+								odio, sollicitudin vel erat vel, interdum mattis neque.
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend
+								gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper dui. Fusce erat
+								odio, sollicitudin vel erat vel, interdum mattis neque.
 							</ModalCardBody>
 							<ModalCardFooter>
-								<Button text={"Save changes"} type={Type.Success} onClick={() => this.setState({state: null})}/>
-								<Button text={"Cancel"}/>
+								<Button text={'Save changes'} type={Type.Success} onClick={() => this.setState({ state: null })}/>
+								<Button text={'Cancel'}/>
 							</ModalCardFooter>
 						</ModalCard>
 					</Modal>
 				</Block>
-				
+
 				<Block>
 					<Navbar style={Style.Transparent}>
 						<NavbarBrand>
 							<NavbarItem>
-								<img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28"/>
+								<img src="" alt="Bulma: a modern CSS framework based on Flexbox"
+									width="112" height="28"/>
 							</NavbarItem>
 							<NavbarBurger/>
 						</NavbarBrand>
 
 						<NavbarMenu>
 							<NavbarStart>
-								<NavbarItem text={"Home"}/>
+								<NavbarItem text={'Home'}/>
 								<NavbarItem style={Style.Hoverable} mode={Mode.Dropdown}>
-									<NavbarLink text={"Docs"} href={""}/>
+									<NavbarLink text={'Docs'} href={''}/>
 									<NavbarDropdown style={Style.Boxed}>
-										<NavbarItem text={"Item 1"}/>
-										<NavbarItem text={"Item 2"}/>
+										<NavbarItem text={'Item 1'}/>
+										<NavbarItem text={'Item 2'}/>
 										<NavbarDivider/>
-										<NavbarItem text={"Item 3"}/>
-										<NavbarItem text={"Components"} state={State.Active}/>
+										<NavbarItem text={'Item 3'}/>
+										<NavbarItem text={'Components'} state={State.Active}/>
 									</NavbarDropdown>
 								</NavbarItem>
 								<NavbarItem style={Style.Hoverable} mode={Mode.DropdownUp}>
-									<NavbarLink text={"Docs"} href={""}/>
+									<NavbarLink text={'Docs'} href={''}/>
 									<NavbarDropdown style={Style.Boxed}>
-										<NavbarItem text={"Item 1"}/>
-										<NavbarItem text={"Item 2"}/>
+										<NavbarItem text={'Item 1'}/>
+										<NavbarItem text={'Item 2'}/>
 										<NavbarDivider/>
-										<NavbarItem text={"Item 3"}/>
-										<NavbarItem text={"Components"} state={State.Active}/>
+										<NavbarItem text={'Item 3'}/>
+										<NavbarItem text={'Components'} state={State.Active}/>
 									</NavbarDropdown>
 								</NavbarItem>
 							</NavbarStart>
@@ -643,10 +667,10 @@ export class MessageComponent extends React.Component<{}, MessageComponentState>
 								<NavbarItem>
 									<Field mode={Mode.Grouped}>
 										<Control>
-											<Button text={"Twitter"} type={Type.Info}/>
+											<Button text={'Twitter'} type={Type.Info}/>
 										</Control>
 										<Control>
-											<Button text={"Download"} type={Type.Primary}/>
+											<Button text={'Download'} type={Type.Primary}/>
 										</Control>
 									</Field>
 								</NavbarItem>
@@ -657,32 +681,33 @@ export class MessageComponent extends React.Component<{}, MessageComponentState>
 					<Navbar style={Style.Transparent} type={Type.Primary}>
 						<NavbarBrand>
 							<NavbarItem>
-								<img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28"/>
+								<img src="" alt="Bulma: a modern CSS framework based on Flexbox"
+									width="112" height="28"/>
 							</NavbarItem>
 							<NavbarBurger/>
 						</NavbarBrand>
 
 						<NavbarMenu>
 							<NavbarStart>
-								<NavbarItem text={"Home"}/>
+								<NavbarItem text={'Home'}/>
 								<NavbarItem style={Style.Hoverable} mode={Mode.Dropdown}>
-									<NavbarLink text={"Docs"} href={""}/>
+									<NavbarLink text={'Docs'} href={''}/>
 									<NavbarDropdown style={Style.Boxed}>
-										<NavbarItem text={"Item 1"}/>
-										<NavbarItem text={"Item 2"}/>
+										<NavbarItem text={'Item 1'}/>
+										<NavbarItem text={'Item 2'}/>
 										<NavbarDivider/>
-										<NavbarItem text={"Item 3"}/>
-										<NavbarItem text={"Components"} state={State.Active}/>
+										<NavbarItem text={'Item 3'}/>
+										<NavbarItem text={'Components'} state={State.Active}/>
 									</NavbarDropdown>
 								</NavbarItem>
 								<NavbarItem style={Style.Hoverable} mode={Mode.DropdownUp}>
-									<NavbarLink text={"Docs"} href={""}/>
+									<NavbarLink text={'Docs'} href={''}/>
 									<NavbarDropdown style={Style.Boxed}>
-										<NavbarItem text={"Item 1"}/>
-										<NavbarItem text={"Item 2"}/>
+										<NavbarItem text={'Item 1'}/>
+										<NavbarItem text={'Item 2'}/>
 										<NavbarDivider/>
-										<NavbarItem text={"Item 3"}/>
-										<NavbarItem text={"Components"} state={State.Active}/>
+										<NavbarItem text={'Item 3'}/>
+										<NavbarItem text={'Components'} state={State.Active}/>
 									</NavbarDropdown>
 								</NavbarItem>
 							</NavbarStart>
@@ -690,10 +715,10 @@ export class MessageComponent extends React.Component<{}, MessageComponentState>
 								<NavbarItem>
 									<Field mode={Mode.Grouped}>
 										<Control>
-											<Button text={"Twitter"} type={Type.Info}/>
+											<Button text={'Twitter'} type={Type.Info}/>
 										</Control>
 										<Control>
-											<Button text={"Download"} type={Type.Primary}/>
+											<Button text={'Download'} type={Type.Primary}/>
 										</Control>
 									</Field>
 								</NavbarItem>
@@ -704,32 +729,33 @@ export class MessageComponent extends React.Component<{}, MessageComponentState>
 					<Navbar style={Style.Transparent} type={Type.Danger}>
 						<NavbarBrand>
 							<NavbarItem>
-								<img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28"/>
+								<img src="" alt="Bulma: a modern CSS framework based on Flexbox"
+									width="112" height="28"/>
 							</NavbarItem>
 							<NavbarBurger/>
 						</NavbarBrand>
 
 						<NavbarMenu>
 							<NavbarStart>
-								<NavbarItem text={"Home"}/>
+								<NavbarItem text={'Home'}/>
 								<NavbarItem style={Style.Hoverable} mode={Mode.Dropdown}>
-									<NavbarLink text={"Docs"} href={""}/>
+									<NavbarLink text={'Docs'} href={''}/>
 									<NavbarDropdown style={Style.Boxed}>
-										<NavbarItem text={"Item 1"}/>
-										<NavbarItem text={"Item 2"}/>
+										<NavbarItem text={'Item 1'}/>
+										<NavbarItem text={'Item 2'}/>
 										<NavbarDivider/>
-										<NavbarItem text={"Item 3"}/>
-										<NavbarItem text={"Components"} state={State.Active}/>
+										<NavbarItem text={'Item 3'}/>
+										<NavbarItem text={'Components'} state={State.Active}/>
 									</NavbarDropdown>
 								</NavbarItem>
 								<NavbarItem style={Style.Hoverable} mode={Mode.DropdownUp}>
-									<NavbarLink text={"Docs"} href={""}/>
+									<NavbarLink text={'Docs'} href={''}/>
 									<NavbarDropdown style={Style.Boxed}>
-										<NavbarItem text={"Item 1"}/>
-										<NavbarItem text={"Item 2"}/>
+										<NavbarItem text={'Item 1'}/>
+										<NavbarItem text={'Item 2'}/>
 										<NavbarDivider/>
-										<NavbarItem text={"Item 3"}/>
-										<NavbarItem text={"Components"} state={State.Active}/>
+										<NavbarItem text={'Item 3'}/>
+										<NavbarItem text={'Components'} state={State.Active}/>
 									</NavbarDropdown>
 								</NavbarItem>
 							</NavbarStart>
@@ -737,10 +763,10 @@ export class MessageComponent extends React.Component<{}, MessageComponentState>
 								<NavbarItem>
 									<Field mode={Mode.Grouped}>
 										<Control>
-											<Button text={"Twitter"} type={Type.Info}/>
+											<Button text={'Twitter'} type={Type.Info}/>
 										</Control>
 										<Control>
-											<Button text={"Download"} type={Type.Primary}/>
+											<Button text={'Download'} type={Type.Primary}/>
 										</Control>
 									</Field>
 								</NavbarItem>
@@ -748,234 +774,273 @@ export class MessageComponent extends React.Component<{}, MessageComponentState>
 						</NavbarMenu>
 					</Navbar>
 				</Block>
-				
+
 				<Block>
 					<Pagination position={Position.Center}>
-						<PaginationPrevious text={"Previous"}/>
-						<PaginationNext text={"Previous"}/>
+						<PaginationPrevious text={'Previous'}/>
+						<PaginationNext text={'Previous'}/>
 						<PaginationList>
 							<PaginationListItem>
-								<PaginationLink text={"1"}/>
+								<PaginationLink text={'1'}/>
 							</PaginationListItem>
 							<PaginationListItem>
 								<PaginationRange text={<span>&hellip;</span>}/>
 							</PaginationListItem>
 							<PaginationListItem>
-								<PaginationLink text={"10"}/>
+								<PaginationLink text={'10'}/>
 							</PaginationListItem>
 							<PaginationListItem>
-								<PaginationLink text={"11"} state={State.Current}/>
+								<PaginationLink text={'11'} state={State.Current}/>
 							</PaginationListItem>
 							<PaginationListItem>
-								<PaginationLink text={"12"}/>
+								<PaginationLink text={'12'}/>
 							</PaginationListItem>
 							<PaginationListItem>
 								<PaginationRange text={<span>&hellip;</span>}/>
 							</PaginationListItem>
 							<PaginationListItem>
-								<PaginationLink text={"21"}/>
+								<PaginationLink text={'21'}/>
 							</PaginationListItem>
 						</PaginationList>
 					</Pagination>
 
 					<Pagination position={Position.Right}>
-						<PaginationPrevious text={"Previous"}/>
-						<PaginationNext text={"Previous"}/>
+						<PaginationPrevious text={'Previous'}/>
+						<PaginationNext text={'Previous'}/>
 						<PaginationList>
 							<PaginationListItem>
-								<PaginationLink text={"1"}/>
+								<PaginationLink text={'1'}/>
 							</PaginationListItem>
 							<PaginationListItem>
 								<PaginationRange text={<span>&hellip;</span>}/>
 							</PaginationListItem>
 							<PaginationListItem>
-								<PaginationLink text={"10"}/>
+								<PaginationLink text={'10'}/>
 							</PaginationListItem>
 							<PaginationListItem>
-								<PaginationLink text={"11"} state={State.Current}/>
+								<PaginationLink text={'11'} state={State.Current}/>
 							</PaginationListItem>
 							<PaginationListItem>
-								<PaginationLink text={"12"}/>
+								<PaginationLink text={'12'}/>
 							</PaginationListItem>
 							<PaginationListItem>
 								<PaginationRange text={<span>&hellip;</span>}/>
 							</PaginationListItem>
 							<PaginationListItem>
-								<PaginationLink text={"21"}/>
+								<PaginationLink text={'21'}/>
 							</PaginationListItem>
 						</PaginationList>
 					</Pagination>
 
 					<Pagination position={Position.Left}>
-						<PaginationPrevious text={"Previous"}/>
-						<PaginationNext text={"Previous"}/>
+						<PaginationPrevious text={'Previous'}/>
+						<PaginationNext text={'Previous'}/>
 						<PaginationList>
 							<PaginationListItem>
-								<PaginationLink text={"1"}/>
+								<PaginationLink text={'1'}/>
 							</PaginationListItem>
 							<PaginationListItem>
 								<PaginationRange text={<span>&hellip;</span>}/>
 							</PaginationListItem>
 							<PaginationListItem>
-								<PaginationLink text={"10"}/>
+								<PaginationLink text={'10'}/>
 							</PaginationListItem>
 							<PaginationListItem>
-								<PaginationLink text={"11"} state={State.Current}/>
+								<PaginationLink text={'11'} state={State.Current}/>
 							</PaginationListItem>
 							<PaginationListItem>
-								<PaginationLink text={"12"}/>
+								<PaginationLink text={'12'}/>
 							</PaginationListItem>
 							<PaginationListItem>
 								<PaginationRange text={<span>&hellip;</span>}/>
 							</PaginationListItem>
 							<PaginationListItem>
-								<PaginationLink text={"21"}/>
+								<PaginationLink text={'21'}/>
 							</PaginationListItem>
 						</PaginationList>
 					</Pagination>
 
 					<Pagination position={Position.Center} style={Style.Rounded}>
-						<PaginationPrevious text={"Previous"}/>
-						<PaginationNext text={"Previous"}/>
+						<PaginationPrevious text={'Previous'}/>
+						<PaginationNext text={'Previous'}/>
 						<PaginationList>
 							<PaginationListItem>
-								<PaginationLink text={"1"}/>
+								<PaginationLink text={'1'}/>
 							</PaginationListItem>
 							<PaginationListItem>
 								<PaginationRange text={<span>&hellip;</span>}/>
 							</PaginationListItem>
 							<PaginationListItem>
-								<PaginationLink text={"10"}/>
+								<PaginationLink text={'10'}/>
 							</PaginationListItem>
 							<PaginationListItem>
-								<PaginationLink text={"11"} state={State.Current}/>
+								<PaginationLink text={'11'} state={State.Current}/>
 							</PaginationListItem>
 							<PaginationListItem>
-								<PaginationLink text={"12"}/>
+								<PaginationLink text={'12'}/>
 							</PaginationListItem>
 							<PaginationListItem>
 								<PaginationRange text={<span>&hellip;</span>}/>
 							</PaginationListItem>
 							<PaginationListItem>
-								<PaginationLink text={"21"}/>
+								<PaginationLink text={'21'}/>
 							</PaginationListItem>
 						</PaginationList>
 					</Pagination>
 				</Block>
 				<Block>
-					<Switch text={"Switch"} 
-						checked={this.state.switch} 
+					<Switch text={'Switch'}
+						checked={this.state.switch}
 						name={'switchColorDefault'}/>
 
-					<Switch text={"Switch rtl"}
-						name={'switchColorRtl'}
-						checked={this.state.switch}
-						mode={Mode.RightToLeft}/>
-					
-					<Switch text={"Switch rtl"} 
+					<Switch text={'Switch rtl'}
 						name={'switchColorRtl'}
 						checked={this.state.switch}
 						mode={Mode.RightToLeft}/>
 
-					<Switch text={"Switch p"}
+					<Switch text={'Switch rtl'}
+						name={'switchColorRtl'}
+						checked={this.state.switch}
+						type={Type.Dark}
+						mode={Mode.RightToLeft}/>
+
+					<Switch text={'Switch p'}
 						name={'switchColorPrimary'}
 						checked={this.state.switch}
-						type={Type.Primary}
+						type={Type.Info}
 						mode={Mode.RightToLeft}/>
 
-					<Switch text={"Switch w"}
+					<Switch text={'Switch w'}
 						name={'switchColorWarning'}
 						checked={this.state.switch}
 						type={Type.Warning}/>
 
-					<Switch text={"Switch s"}
+					<Switch text={'Switch s'}
 						name={'switchColorSuccess'}
 						checked={this.state.switch}
-						onClick={() => this.setState({...this.state, switch: !this.state.switch})}
+						onClick={() => this.setState({ ...this.state, switch: !this.state.switch })}
 						type={Type.Success}/>
 				</Block>
-				
+
 				<Block>
-					<Badge data={10} text={"Badge 1"}/>
-					<Badge text={"Badge 2"} 
+					<Badge data={10} text={'Badge 1'}/>
+					<Badge text={'Badge 2'}
 						type={Type.Primary}
 						badgeType={BadgeType.Primary}/>
-					<Badge data={11} text={"Badge 3"} 
+					<Badge data={11} text={'Badge 3'}
 						type={Type.Success}
 						badgeType={BadgeType.Success}/>
-					<Badge data={12} text={"Badge 4"}
+					<Badge data={12} text={'Badge 4'}
 						type={Type.Danger}
 						badgeType={BadgeType.Danger}/>
-					<Badge data={13} text={"Badge 5"}
+					<Badge data={13} text={'Badge 5'}
 						type={Type.Info}
 						badgeType={BadgeType.Info}/>
-					<Badge data={""} text={"Badge 6"}
+					<Badge data={''} text={'Badge 6'}
 						type={Type.Warning}
 						badgeType={BadgeType.Warning}/>
-					<Badge data={14} text={"Badge 7"}
+					<Badge data={14} text={'Badge 7'}
 						type={Type.Dark}
 						badgeType={BadgeType.Dark}/>
 				</Block>
 				<Block>
-					<Badge data={10} text={"Badge 1"} 
+					<Badge data={10} text={'Badge 1'}
 						style={Style.Outlined}/>
-					<Badge text={"Badge 2"} type={Type.Primary} style={Style.Outlined}/>
-					<Badge data={11} text={"Badge 3"} type={Type.Success} style={Style.Outlined}/>
-					<Badge data={12} text={"Badge 4"} type={Type.Danger} style={Style.Outlined}/>
-					<Badge data={13} text={"Badge 5"} type={Type.Info} style={Style.Outlined}/>
-					<Badge data={""} text={"Badge 6"} type={Type.Warning} style={Style.Outlined}/>
-					<Badge data={14} text={"Badge 7"} type={Type.Dark} style={Style.Outlined}/>
+					<Badge text={'Badge 2'} type={Type.Primary} style={Style.Outlined}/>
+					<Badge data={11} text={'Badge 3'} type={Type.Success} style={Style.Outlined}/>
+					<Badge data={12} text={'Badge 4'} type={Type.Danger} style={Style.Outlined}/>
+					<Badge data={13} text={'Badge 5'} type={Type.Info} style={Style.Outlined}/>
+					<Badge data={''} text={'Badge 6'} type={Type.Warning} style={Style.Outlined}/>
+					<Badge data={14} text={'Badge 7'} type={Type.Dark} style={Style.Outlined}/>
 				</Block>
 				<Block>
-					<Badge data={10} text={"Badge 1"}
+					<Badge data={10} text={'Badge 1'}
 						style={Style.Outlined}/>
-					<Badge text={"Badge 2"} type={Type.Primary} style={Style.Outlined}/>
-					<Badge data={11} text={"Badge 3"} type={Type.Success} style={Style.Outlined}/>
-					<Badge data={12} text={"Badge 4"} type={Type.Danger} style={Style.Outlined}/>
-					<Badge data={13} text={"Badge 5"} type={Type.Info} 
+					<Badge text={'Badge 2'} type={Type.Primary} style={Style.Outlined}/>
+					<Badge data={11} text={'Badge 3'} type={Type.Success} style={Style.Outlined}/>
+					<Badge data={12} text={'Badge 4'} type={Type.Danger} style={Style.Outlined}/>
+					<Badge data={13} text={'Badge 5'} type={Type.Info}
 						style={Style.Outlined}
 						badgePosition={BadgePosition.Left}/>
-					<Badge data={""} text={"Badge 6"} type={Type.Warning} 
+					<Badge data={''} text={'Badge 6'} type={Type.Warning}
 						style={Style.Outlined}
 						badgePosition={BadgePosition.Bottom}/>
-					<Badge data={14} text={"Badge 7"} type={Type.Dark} 
+					<Badge data={14} text={'Badge 7'} type={Type.Dark}
 						style={Style.Outlined}
 						badgePosition={BadgePosition.BottomLeft}/>
 				</Block>
 				<Block>
 					<Columns platform={Platform.Mobile}>
-						<Column><SpanBadge data={10} text={"Badge 1"} style={Style.Outlined}/></Column>
-						<Column><SpanBadge text={"Badge 2"} type={Type.Primary} style={Style.Outlined}/></Column>
-						<Column><SpanBadge data={11} text={"Badge 3"} type={Type.Success} style={Style.Outlined}/></Column>
-						<Column><SpanBadge data={11} text={"Badge 3"} type={Type.Success} style={Style.Outlined}/></Column>
-						<Column><SpanBadge data={12} text={"Badge 4"} type={Type.Danger} style={Style.Outlined}/></Column>
+						<Column><SpanBadge data={10} text={'Badge 1'} style={Style.Outlined}/></Column>
+						<Column><SpanBadge text={'Badge 2'} type={Type.Primary} style={Style.Outlined}/></Column>
+						<Column><SpanBadge data={11} text={'Badge 3'} type={Type.Success} style={Style.Outlined}/></Column>
+						<Column><SpanBadge data={11} text={'Badge 3'} type={Type.Success} style={Style.Outlined}/></Column>
+						<Column><SpanBadge data={12} text={'Badge 4'} type={Type.Danger} style={Style.Outlined}/></Column>
 						<Column>
-							<SpanBadge data={13} text={"Badge 5"} type={Type.Info}
+							<SpanBadge data={13} text={'Badge 5'} type={Type.Info}
 								style={Style.Outlined}
 								badgePosition={BadgePosition.Left}/>
 						</Column>
 						<Column>
-							<SpanBadge data={""} text={"Badge 6"} type={Type.Warning}
+							<SpanBadge data={''} text={'Badge 6'} type={Type.Warning}
 								style={Style.Outlined}
 								badgePosition={BadgePosition.Bottom}/>
 						</Column>
 						<Column>
-							<SpanBadge data={14} text={"Badge 7"} type={Type.Dark}
+							<SpanBadge data={14} text={'Badge 7'} type={Type.Dark}
 								style={Style.Outlined}
 								badgePosition={BadgePosition.BottomLeft}/>
 						</Column>
 					</Columns>
 				</Block>
 				<Block>
-					<Tooltip type={Type.Primary} text={"Tooltip 1"} tooltip={"Tooltip 1"}/>
-					<Tooltip tooltipType={TooltipType.Danger} tooltipPosition={TooltipPosition.Right} type={Type.Danger} text={"Tooltip 1"} tooltip={"Tooltip 1"}/>
-					<Tooltip tooltipType={TooltipType.Warning} tooltipPosition={TooltipPosition.Bottom} type={Type.Warning} text={"Tooltip 1"} tooltip={"Tooltip 1"}/>
-					<Tooltip tooltipType={TooltipType.Info} tooltipPosition={TooltipPosition.Left} type={Type.Info} text={"Tooltip 1"} tooltip={"Tooltip 1"}/>
+					<Tooltip type={Type.Primary} text={'Tooltip 1'} tooltip={'Tooltip 1'}/>
+					<Tooltip tooltipType={TooltipType.Danger} tooltipPosition={TooltipPosition.Right} type={Type.Danger}
+						text={'Tooltip 1'} tooltip={'Tooltip 1'}/>
+					<Tooltip tooltipType={TooltipType.Warning} tooltipPosition={TooltipPosition.Bottom} type={Type.Warning}
+						text={'Tooltip 1'} tooltip={'Tooltip 1'}/>
+					<Tooltip tooltipType={TooltipType.Info} tooltipPosition={TooltipPosition.Left} type={Type.Info}
+						text={'Tooltip 1'} tooltip={'Tooltip 1'}/>
 				</Block>
-				
+
 				<Pageloader state={this.state.pageloader}>
-					<Title text={"Pageloader"}/>
+					<Title text={'Pageloader'}/>
 				</Pageloader>
+
+				<Block>
+					<CheckBox text={'Checkbox'} name={'CheckBox'}
+						onClick={() => console.log('click')}/>
+					<CheckBox text={'Checkbox2'} name={'CheckBox2'}
+						type={Type.Success}
+						checkBoxType={CheckBoxType.Circle}
+						onClick={() => console.log('click')}/>
+					<CheckBox text={'Checkbox3'} name={'CheckBox3'}
+						type={Type.Dark}
+						onClick={() => console.log('click')}/>
+					<CheckBox text={'Checkbox4'} name={'CheckBox4'}
+						type={Type.Danger}
+						mode={Mode.RightToLeft}
+						onClick={() => console.log('click')}/>
+				</Block>
+
+				<Block>
+					<Field>
+						<Radio id={'Radio'} text={'Radio'} group={'Radio'}
+							onClick={() => console.log('click')}/>
+						<Radio id={'Radio2'} text={'Radio2'} group={'Radio'}
+							type={Type.Success}
+							onClick={() => console.log('click')}/>
+						<Radio id={'Radio3'} text={'Radio3'} group={'Radio'}
+							type={Type.Dark}
+							onClick={() => console.log('click')}/>
+						<Radio id={'Radio4'} text={'Radio4'} group={'Radio'}
+							type={Type.Danger}
+							mode={Mode.RightToLeft}
+							onClick={() => console.log('click')}/>
+					</Field>
+				</Block>
+
+
 			</Container>
 		)
 	}

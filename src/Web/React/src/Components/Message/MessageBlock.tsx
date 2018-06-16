@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {MessageViewModel} from 'Components/Message';
+import {MessageViewModel} from 'components/Message';
 
 export interface MessageBlockProps {
 	messages: MessageViewModel[];

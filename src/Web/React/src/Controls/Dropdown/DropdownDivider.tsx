@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Element, TextElementProps } from 'Controls'
+import { Element, TextElementProps } from 'controls'
 
 export class DropdownDivider extends Element<TextElementProps> {
 

@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using System.IO.Compression;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -13,14 +15,18 @@ namespace AspNetCore
 				options => options.UseInMemoryDatabase(nameof(MessageDbContext)));
 
 			services.AddMvc();
+
+			services.Configure<GzipCompressionProviderOptions>(options =>
+			{
+				options.Level = CompressionLevel.Optimal;
+			});
+				
+			services.AddResponseCompression();
 		}
 
 		public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 		{
-			if (env.IsDevelopment())
-			{
-				app.UseDeveloperExceptionPage();
-			}
+			app.UseResponseCompression();
 
 			app.UseStaticFiles();
 			app.UseMvcWithDefaultRoute();

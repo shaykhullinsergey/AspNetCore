@@ -1,7 +1,6 @@
 import * as React from 'react'
-import { ClickElementProps, Element, TextElementProps } from 'Controls'
-import { Field } from 'Controls/Field'
-import { Label } from 'Controls/Label'
+import { Label } from 'controls/Label'
+import { Element, TextElementProps, ClickElementProps } from 'controls'
 
 export interface SwitchProps extends TextElementProps, ClickElementProps {
 	name: string
@@ -14,7 +13,7 @@ export class Switch extends Element<SwitchProps> {
 		const className = this.classNames('switch')
 		
 		return (
-			<Field>
+			<React.Fragment>
 				<input className={className} 
 					type={'checkbox'} 
 					checked={this.props.checked}
@@ -22,7 +21,7 @@ export class Switch extends Element<SwitchProps> {
 				<Label text={this.props.text} 
 					for={this.props.name}
 					onClick={() => this.props.onClick && this.props.onClick()}/>
-			</Field>
+			</React.Fragment>
 		)
 	}
 }

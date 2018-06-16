@@ -32,15 +32,18 @@ import { Textarea } from 'Controls/Textarea'
 import { Columns, Column } from 'Controls/Column'
 import { Tiles, Tile, TileType } from 'Controls/Tile'
 import { Breadcrumbs, Breadcrumb, Separator } from 'Controls/Breadcrumbs'
-import { Dropdown } from 'Controls/Dropdown/Dropdown'
-import { DropdownDivider } from 'Controls/Dropdown/DropdownDivider'
-import { DropdownItem } from 'Controls/Dropdown/DropdownItem'
-import { DropdownContent } from 'Controls/Dropdown/DropdownContent'
-import { DropdownMenu } from 'Controls/Dropdown/DropdownMenu'
-import { DropdownTrigger } from 'Controls/Dropdown/DropdownTrigger'
-import { Modal, ModalCard, ModalCardBody, ModalCardFooter, ModalCardHeader, ModalCardTitle } from 'Controls/Modal/Modal'
-import { Checkbox } from 'Controls/Checkbox/Checkbox'
-import { Radio } from 'Controls/Radio/Radio'
+
+import { Dropdown } from 'Controls/Dropdown'
+import { DropdownDivider } from 'Controls/Dropdown'
+import { DropdownItem } from 'Controls/Dropdown'
+import { DropdownContent } from 'Controls/Dropdown'
+import { DropdownMenu } from 'Controls/Dropdown'
+import { DropdownTrigger } from 'Controls/Dropdown'
+
+import { Modal, ModalCard, ModalCardBody, ModalCardFooter, ModalCardHeader, ModalCardTitle } from 'Controls/Modal'
+import { Checkbox } from 'Controls/Checkbox'
+import { Radio } from 'Controls/Radio'
+
 import {
 	Navbar,
 	NavbarBrand,
@@ -52,17 +55,21 @@ import {
 	NavbarLink,
 	NavbarMenu,
 	NavbarStart
-} from 'Controls/Navbar/Navbar'
+} from 'Controls/Navbar'
+
 import {
-	Pagination, PaginationLink,
+	Pagination, 
+	PaginationLink,
 	PaginationList,
 	PaginationListItem,
 	PaginationNext,
-	PaginationPrevious, PaginationRange
-} from 'Controls/Pagination/Pagination'
-import { Switch } from 'Controls/Switch/Switch'
-import { Badge, BadgePosition, BadgeType, SpanBadge } from 'Controls/Badge/Badge'
-import { Tooltip, TooltipPosition, TooltipType } from 'Controls/Tooltip/Tooltip'
+	PaginationPrevious, 
+	PaginationRange
+} from 'Controls/Pagination'
+
+import { Switch } from 'Controls/Switch'
+import { Badge, BadgePosition, BadgeType, SpanBadge } from 'Controls/Badge'
+import { Tooltip, TooltipPosition, TooltipType } from 'Controls/Tooltip'
 import { Pageloader } from 'Controls/Pageloader'
 
 export interface MessageComponentState {
@@ -967,7 +974,7 @@ export class MessageComponent extends React.Component<{}, MessageComponentState>
 				</Block>
 				
 				<Pageloader state={this.state.pageloader}>
-					<Title text={"Preloader"}/>
+					<Title text={"Pageloader"}/>
 				</Pageloader>
 			</Container>
 		)

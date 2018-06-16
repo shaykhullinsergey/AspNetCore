@@ -218,3 +218,6 @@ _Pvt_Extensions
 
 \.idea/
 \src\Web\React\node_modules/
+src/Web/wwwroot/js/bundle\.js
+
+src/Web/wwwroot/js/bundle\.js\.map

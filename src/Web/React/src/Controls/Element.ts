@@ -18,6 +18,7 @@ export enum Mode {
 	DropdownUp = 'has-dropdown has-dropdown-up',
 	FixedTop = 'is-fixed-top',
 	FixedBottom = 'is-fixed-bottom',
+	RightToLeft = 'is-rtl'
 }
 
 export enum Position {
@@ -53,9 +54,10 @@ export enum Style {
 	Transparent = 'is-transparent',
 	Rounded = 'is-rounded',
 	Thin = 'is-thin',
-	Toggle = 'is-toggle',
-	RoundedToggle = 'is-toggle-rounded',
-	Boxed = 'is-boxed'
+	Toggled = 'is-toggle',
+	RoundedToggled = 'is-toggle-rounded',
+	Boxed = 'is-boxed',
+	Multilined = 'is-multiline'
 }
 
 export enum State {

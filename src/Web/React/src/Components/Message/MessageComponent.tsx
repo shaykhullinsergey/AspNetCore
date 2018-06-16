@@ -60,28 +60,28 @@ import {
 	PaginationNext,
 	PaginationPrevious, PaginationRange
 } from 'Controls/Pagination/Pagination'
+import { Switch } from 'Controls/Switch/Switch'
+import { Badge, BadgePosition, BadgeType, SpanBadge } from 'Controls/Badge/Badge'
+import { Tooltip, TooltipPosition, TooltipType } from 'Controls/Tooltip/Tooltip'
+import { Pageloader } from 'Controls/Pageloader'
 
 export interface MessageComponentState {
 	messages: MessageViewModel[];
 	state: State
+	switch: boolean
+	pageloader?: State
 }
 
 export class MessageComponent extends React.Component<{}, MessageComponentState> {
 
 	constructor(props: {}) {
 		super(props)
-		this.state = { messages: null, state: null }
+		this.state = { messages: null, state: null, switch: false, pageloader: State.Active }
 	}
 
 	public componentDidMount() {
-		// this.updateMessages()
+		setInterval(() => {this.setState({...this.state, pageloader: null})}, 2000)
 	}
-
-	// private updateMessages() {
-	// 	Controller
-	// 		.getAllMessages()
-	// 		.then(responce => this.setState({ messages: responce.data.messages }))
-	// }
 
 	public render() {
 
@@ -855,6 +855,120 @@ export class MessageComponent extends React.Component<{}, MessageComponentState>
 						</PaginationList>
 					</Pagination>
 				</Block>
+				<Block>
+					<Switch text={"Switch"} 
+						checked={this.state.switch} 
+						name={'switchColorDefault'}/>
+
+					<Switch text={"Switch rtl"}
+						name={'switchColorRtl'}
+						checked={this.state.switch}
+						mode={Mode.RightToLeft}/>
+					
+					<Switch text={"Switch rtl"} 
+						name={'switchColorRtl'}
+						checked={this.state.switch}
+						mode={Mode.RightToLeft}/>
+
+					<Switch text={"Switch p"}
+						name={'switchColorPrimary'}
+						checked={this.state.switch}
+						type={Type.Primary}
+						mode={Mode.RightToLeft}/>
+
+					<Switch text={"Switch w"}
+						name={'switchColorWarning'}
+						checked={this.state.switch}
+						type={Type.Warning}/>
+
+					<Switch text={"Switch s"}
+						name={'switchColorSuccess'}
+						checked={this.state.switch}
+						onClick={() => this.setState({...this.state, switch: !this.state.switch})}
+						type={Type.Success}/>
+				</Block>
+				
+				<Block>
+					<Badge data={10} text={"Badge 1"}/>
+					<Badge text={"Badge 2"} 
+						type={Type.Primary}
+						badgeType={BadgeType.Primary}/>
+					<Badge data={11} text={"Badge 3"} 
+						type={Type.Success}
+						badgeType={BadgeType.Success}/>
+					<Badge data={12} text={"Badge 4"}
+						type={Type.Danger}
+						badgeType={BadgeType.Danger}/>
+					<Badge data={13} text={"Badge 5"}
+						type={Type.Info}
+						badgeType={BadgeType.Info}/>
+					<Badge data={""} text={"Badge 6"}
+						type={Type.Warning}
+						badgeType={BadgeType.Warning}/>
+					<Badge data={14} text={"Badge 7"}
+						type={Type.Dark}
+						badgeType={BadgeType.Dark}/>
+				</Block>
+				<Block>
+					<Badge data={10} text={"Badge 1"} 
+						style={Style.Outlined}/>
+					<Badge text={"Badge 2"} type={Type.Primary} style={Style.Outlined}/>
+					<Badge data={11} text={"Badge 3"} type={Type.Success} style={Style.Outlined}/>
+					<Badge data={12} text={"Badge 4"} type={Type.Danger} style={Style.Outlined}/>
+					<Badge data={13} text={"Badge 5"} type={Type.Info} style={Style.Outlined}/>
+					<Badge data={""} text={"Badge 6"} type={Type.Warning} style={Style.Outlined}/>
+					<Badge data={14} text={"Badge 7"} type={Type.Dark} style={Style.Outlined}/>
+				</Block>
+				<Block>
+					<Badge data={10} text={"Badge 1"}
+						style={Style.Outlined}/>
+					<Badge text={"Badge 2"} type={Type.Primary} style={Style.Outlined}/>
+					<Badge data={11} text={"Badge 3"} type={Type.Success} style={Style.Outlined}/>
+					<Badge data={12} text={"Badge 4"} type={Type.Danger} style={Style.Outlined}/>
+					<Badge data={13} text={"Badge 5"} type={Type.Info} 
+						style={Style.Outlined}
+						badgePosition={BadgePosition.Left}/>
+					<Badge data={""} text={"Badge 6"} type={Type.Warning} 
+						style={Style.Outlined}
+						badgePosition={BadgePosition.Bottom}/>
+					<Badge data={14} text={"Badge 7"} type={Type.Dark} 
+						style={Style.Outlined}
+						badgePosition={BadgePosition.BottomLeft}/>
+				</Block>
+				<Block>
+					<Columns platform={Platform.Mobile}>
+						<Column><SpanBadge data={10} text={"Badge 1"} style={Style.Outlined}/></Column>
+						<Column><SpanBadge text={"Badge 2"} type={Type.Primary} style={Style.Outlined}/></Column>
+						<Column><SpanBadge data={11} text={"Badge 3"} type={Type.Success} style={Style.Outlined}/></Column>
+						<Column><SpanBadge data={11} text={"Badge 3"} type={Type.Success} style={Style.Outlined}/></Column>
+						<Column><SpanBadge data={12} text={"Badge 4"} type={Type.Danger} style={Style.Outlined}/></Column>
+						<Column>
+							<SpanBadge data={13} text={"Badge 5"} type={Type.Info}
+								style={Style.Outlined}
+								badgePosition={BadgePosition.Left}/>
+						</Column>
+						<Column>
+							<SpanBadge data={""} text={"Badge 6"} type={Type.Warning}
+								style={Style.Outlined}
+								badgePosition={BadgePosition.Bottom}/>
+						</Column>
+						<Column>
+							<SpanBadge data={14} text={"Badge 7"} type={Type.Dark}
+								style={Style.Outlined}
+								badgePosition={BadgePosition.BottomLeft}/>
+						</Column>
+					</Columns>
+				</Block>
+				<Block>
+					<Tooltip type={Type.Primary} text={"Tooltip 1"} tooltip={"Tooltip 1"}/>
+					<Tooltip tooltipType={TooltipType.Danger} tooltipPosition={TooltipPosition.Right} type={Type.Danger} text={"Tooltip 1"} tooltip={"Tooltip 1"}/>
+					<Tooltip tooltipType={TooltipType.Warning} tooltipPosition={TooltipPosition.Bottom} type={Type.Warning} text={"Tooltip 1"} tooltip={"Tooltip 1"}/>
+					<Tooltip tooltipType={TooltipType.Info} tooltipPosition={TooltipPosition.Left} type={Type.Info} text={"Tooltip 1"} tooltip={"Tooltip 1"}/>
+				</Block>
+				
+				<Pageloader state={this.state.pageloader}>
+					<Title text={"Preloader"}/>
+				</Pageloader>
 			</Container>
 		)
 	}

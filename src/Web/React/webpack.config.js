@@ -23,10 +23,17 @@ module.exports = {
 		rules: [
 			{ test: /\.tsx?$/, loader: "awesome-typescript-loader" },
 			{ enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
+			
 			{ test: /\.sass$/, use: [
 				{loader: 'style-loader'}, 
 				{loader: 'css-loader', options: {minimize: true}},
-				{loader: 'sass-loader'}]}
+				{loader: 'sass-loader'}]
+			},
+			
+			{ test: /\.css/, use: [
+					{loader: 'style-loader'},
+					{loader: 'css-loader', options: {minimize: true}}]
+			}
 		],
 	},
 	

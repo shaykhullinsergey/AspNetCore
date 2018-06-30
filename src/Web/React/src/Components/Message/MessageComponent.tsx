@@ -71,6 +71,8 @@ import { Switch } from 'controls/Switch'
 import { Badge, BadgePosition, BadgeType, SpanBadge } from 'controls/Badge'
 import { Tooltip, TooltipPosition, TooltipType } from 'controls/Tooltip'
 import { Pageloader } from 'controls/Pageloader'
+import {Component} from "components"
+import { MessageType } from "services/Message"
 
 export interface MessageComponentState {
 	messages: MessageViewModel[];
@@ -79,7 +81,7 @@ export interface MessageComponentState {
 	pageloader?: State
 }
 
-export class MessageComponent extends React.Component<{}, MessageComponentState> {
+export class MessageComponent extends Component<{}, MessageComponentState> {
 
 	constructor(props: {}) {
 		super(props)
@@ -87,7 +89,10 @@ export class MessageComponent extends React.Component<{}, MessageComponentState>
 	}
 
 	public componentDidMount() {
-		
+		this.services.get(MessageType)
+			.getAllMessages()
+			.then(x => console.log(x))
+			.catch(x => console.log('Works2!'))
 	}
 
 	public render() {

@@ -1,12 +1,27 @@
 import * as React from 'react';
 import {MessageViewModel} from 'components/Message';
+import {Component} from "components"
+import {MessageType} from "services/Message"
 
-export interface MessageBlockProps {
+export interface MessageBlockState {
 	messages: MessageViewModel[];
 }
 
-export class MessageBlock extends React.Component<MessageBlockProps> {
+export class MessageBlock extends Component<{}, MessageBlockState> {
 
+	constructor(props: {}) {
+		super(props)
+		
+		this.state = {messages: []}
+	}
+	
+	public componentDidMount() {
+		this.services
+			.get(MessageType)
+			.getAllMessages()
+			.then(model => this.setState({messages: model.messages}))
+	}
+	
 	private renderMessage(message: MessageViewModel) {
 		return (
 			<li key={message.id}>
@@ -18,14 +33,17 @@ export class MessageBlock extends React.Component<MessageBlockProps> {
 	}
 
 	public render() {
-		const messages = this.props.messages
-			? this.props.messages.map(message => this.renderMessage(message))
+		const messages = this.state.messages
+			? this.state.messages.map(message => this.renderMessage(message))
 			: null
 		
 		return (
-			<ul>
-				{messages}
-			</ul>
+			<div>
+				<span>Messages: </span>
+				<ul>
+					{messages}
+				</ul>
+			</div>
 		)
 	}
 }

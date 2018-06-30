@@ -2,17 +2,13 @@ import * as React from 'react'
 
 import { MessageViewModel } from 'components/Message'
 
-export interface AddMessageProps {
-	onMessage(message: MessageViewModel): void;
-}
-
 export interface AddMessageState {
 	message: MessageViewModel
 }
 
-export class AddMessageBlock extends React.Component<AddMessageProps, AddMessageState> {
+export class AddMessageBlock extends React.Component<{}, AddMessageState> {
 
-	public constructor(props: AddMessageProps) {
+	public constructor(props: {}) {
 		super(props)
 
 		this.state = { message: { text: '' } }
@@ -21,7 +17,7 @@ export class AddMessageBlock extends React.Component<AddMessageProps, AddMessage
 	public render() {
 		return (
 			<div>
-				
+				Add message block
 			</div>)
 	}
 }

@@ -14,9 +14,16 @@
 		"paths": {
       "components": ["src/Components"],
       "components/*": ["src/Components/*"],
+			"services": ["src/Services"],
+			"services/*": ["src/Services/*"],
+			"injection": ["src/Injection"],
+			"injection/*": ["src/Injectiond/*"],
 			"controls": ["src/Controls"],
       "controls/*": ["src/Controls/*"],
-			"bulma-aspnetcore/*": ["src/Bulma/*"]
+			"pages": ["src/Pages"],
+			"pages/*": ["src/Pages/*"],
+			"router": ["src/Router"],
+			"router/*": ["src/Router/*"]
 		}
 	},
   "include": [

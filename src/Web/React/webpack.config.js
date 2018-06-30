@@ -18,9 +18,11 @@ module.exports = {
 		extensions: [".ts", ".tsx", ".js", ".json"],
 		alias: {
 			components: path.resolve(__dirname, 'src', 'Components/'),
-			controllers: path.resolve(__dirname, 'src', 'Controllers/'),
+			services: path.resolve(__dirname, 'src', 'Services/'),
+			injection: path.resolve(__dirname, 'src', 'Injection/'),
       controls: path.resolve(__dirname, 'src', 'Controls/'),
-			'bulma-aspnetcore': path.resolve(__dirname, 'src', 'Bulma/')
+			pages: path.resolve(__dirname, 'src', 'Pages/'),
+			router: path.resolve(__dirname, 'src', 'Router/'),
 		}
 	},
 	
